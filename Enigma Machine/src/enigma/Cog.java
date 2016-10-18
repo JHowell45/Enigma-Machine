@@ -52,18 +52,4 @@ public class Cog {
   public String getSize() {
     return sizeOfCog;
   }
-  
-  /**
-   * Method used for creating cogs to be used for the enigma machine.
-   * 
-   * @param numOfVals is the number of potential values each cog can have.
-   * @param smallCog will hold the value of the smallest cog.
-   * @param mediumCog will hold the value of the middle cog.
-   * @param largeCog will hold the value of the largest cog.
-   */
-  public void createCogs(int numOfVals, Cog smallCog, Cog mediumCog, Cog largeCog) {
-    smallCog = new Cog(numOfVals, "small");
-    mediumCog = new Cog(numOfVals, "medium");
-    largeCog = new Cog(numOfVals, "large");
-  }
 }

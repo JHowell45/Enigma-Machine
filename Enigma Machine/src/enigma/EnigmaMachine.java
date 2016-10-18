@@ -15,14 +15,29 @@ public class EnigmaMachine {
    * @param mediumCog is used for holding the key information for the medium cog.
    * @param largeCog is used for holding the key information for the large cog.
    */
-  private Cog smallCog;
-  private Cog mediumCog;
-  private Cog largeCog;
+  private static Cog smallCog;
+  private static Cog mediumCog;
+  private static Cog largeCog;
 
+  /**
+   * Method used for creating cogs to be used for the enigma machine.
+   * 
+   * @param numOfVals is the number of potential values each cog can have.
+   * @param sCog will hold the value of the smallest cog.
+   * @param mCog will hold the value of the middle cog.
+   * @param lCog will hold the value of the largest cog.
+   */
+  public static void createCogs(int numOfVals, Cog sCog, Cog mCog, Cog lCog) {
+    sCog = new Cog(numOfVals, "small");
+    mCog = new Cog(numOfVals, "medium");
+    lCog = new Cog(numOfVals, "large");
+  }
+  
   /**
    * This is the main method used for running the main program.
    */
-  public void main(String args[]) {
-
+  public static void main(String args[]) {
+    int numberOfValues = 26;
+    createCogs(numberOfValues, smallCog, mediumCog, largeCog);
   }
 }
