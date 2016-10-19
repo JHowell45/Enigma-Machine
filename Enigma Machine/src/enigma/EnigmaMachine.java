@@ -5,6 +5,8 @@
  */
 
 package enigma;
+import java.util.Scanner;
+
 
 public class EnigmaMachine {
 
@@ -18,6 +20,8 @@ public class EnigmaMachine {
   private static Cog smallCog;
   private static Cog mediumCog;
   private static Cog largeCog;
+  private static String plainText;
+  private static String cipherText;
 
   /**
    * Method used for creating cogs to be used for the enigma machine.
@@ -32,6 +36,17 @@ public class EnigmaMachine {
     mCog = new Cog(numOfVals, "medium");
     lCog = new Cog(numOfVals, "large");
   }
+  
+  /**
+   * This method is used to receive the user input to be used as plaintext for the enigma machine.
+   */
+  public static void getPlainText() {
+    Scanner scan = new Scanner(System.in);
+    System.out.println("Please enter some ciphertext: ");
+    plainText = scan.nextLine();
+    scan.close();
+  }
+  
   
   /**
    * This is the main method used for running the main program.
