@@ -17,10 +17,23 @@ public class EnigmaMachine {
    * @param lCog will hold the value of the largest cog.
    */
   public void createCogs(int numOfVals, Cog sCog, Cog mCog, Cog lCog) {
-    sCog = new Cog(numOfVals, "small");
-    mCog = new Cog(numOfVals, "medium");
-    lCog = new Cog(numOfVals, "large");
+    sCog = new Cog(numOfVals, 0, "small");
+    mCog = new Cog(numOfVals, 0, "medium");
+    lCog = new Cog(numOfVals, 0, "large");
   }
   
-  
+  /**
+   * This method is used to rotate the cogs after encrypting a character.
+   * @param sCog
+   * @param mCog
+   * @param lCog
+   * @param numOfVals
+   */
+  public void cogRotate(Cog sCog, Cog mCog, Cog lCog, int numOfVals) {
+    if(sCog.getCurrentValue() < sCog.getNumberOfValues()) {
+      
+    } else {
+      
+    }
+  }
 }
