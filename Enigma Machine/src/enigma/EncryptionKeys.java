@@ -1,3 +1,10 @@
+/**
+ * This class is used for storing the values for the cogs and for 
+ * creating and accessing the encryption keys to be used.
+ * 
+ * @author Jacob Howell
+ */
+
 package enigma;
 
 public class EncryptionKeys {
