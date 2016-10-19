@@ -65,4 +65,20 @@ public class Cog {
   public String getSize() {
     return sizeOfCog;
   }
+  
+  /**
+   * This method is used for setting the number of potential values a cog can have.
+   * @param numOfVals is the user inputed value for the total number of values a cog can have.
+   */
+  public void setNumberOfValues(int numOfVals) {
+    numberOfValues = numOfVals;
+  }
+  
+  /**
+   * This method is used for setting the current value of the cog.
+   * @param currentVal is the user inputed value of the new cog current value.
+   */
+  public void setCurrentValue(int currentVal) {
+    currentValue = currentVal;
+  }  
 }
