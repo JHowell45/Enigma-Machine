@@ -48,21 +48,7 @@ public class EnigmaMachine {
       }
     }
   }
+ 
   
-  /**
-   * 
-   * @param plainTxt
-   */
-  public void encryptPlainText(String plainTxt) {
-    // This method will encrypt the plain text using the values of the cogs.
-  }
-  
-  /**
-   * 
-   * @param cipherTxt
-   */
-  public void decryptCipherText(String cipherTxt) {
-    // This method will decrypt the cipher text using the values of the cogs.
-  }
   
 }
