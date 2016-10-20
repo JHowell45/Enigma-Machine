@@ -8,13 +8,34 @@
 package enigma;
 
 public class EncryptionKeys {
-
+  
   /**
-   * 
+   * This method is used for getting the cogs collective key.
+   * @param c1 is the first, smallest, cog in the Enigma machine.
+   * @param c2 is the second, middle-sized, cog in the Enigma machine.
+   * @param c3 is the third, largest, cog in the Enigma machine.
+   * @return the key for the cogs.
    */
-  public void encryptionKeys(int allKeys[]) {
-    // This method will hold all of the encryption keys used to encrypt/decrypt text.
-    
+  public int getCogKey(Cog c1, Cog c2, Cog c3) {
+    int c1Value = c1.getCurrentValue();
+    int c2Value = c2.getCurrentValue();
+    int c3Value = c3.getCurrentValue();
+    int temp = 0;
+    // If statement is used to make sure none of the cog values are 0.
+    if(c1Value !=0 && c2Value !=0 && c3Value !=0) {
+      temp = c1Value * c2Value * c3Value;
+      // If any of the cog values are zero it ignores it when doing the multiplication.
+    } else if(c1Value == 0) {
+      temp = c2Value * c3Value;
+    } else if(c2Value == 0) {
+      temp = c1Value * c3Value;
+    } else if(c3Value == 0) {
+      temp = c1Value * c2Value;
+    } else {
+      // if all are zero it sets the key value to 3.
+      temp = 3;
+    }
+    return temp;
   }
   
   /**
@@ -44,15 +65,18 @@ public class EncryptionKeys {
    * 
    * @param plainTxt
    */
-  public void encryptPlainText(String plainTxt) {
-    // This method will encrypt the plain text using the values of the cogs.
+  public void encryptPlainText(String plainT, Cog c1, Cog c2, Cog c3) {
+    char tempStringArray[] = plainT.toCharArray();
+    for(int i=0; i<tempStringArray.length; i++) {
+      
+    }
   }
   
   /**
    * 
    * @param cipherTxt
    */
-  public void decryptCipherText(String cipherTxt) {
+  public void decryptCipherText(String cipherT) {
     // This method will decrypt the cipher text using the values of the cogs.
   }
   

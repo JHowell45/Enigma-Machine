@@ -26,10 +26,10 @@ public class MainClass {
   /**
    * This method is used to receive the user input to be used as plaintext for the enigma machine.
    */
-  public static void getPlainText() {
+  public static void getPlainText(String plainT) {
     Scanner scan = new Scanner(System.in);
     System.out.println("Please enter some ciphertext: ");
-    plainText = scan.nextLine();
+    plainT = scan.nextLine();
     scan.close();
   }
   
