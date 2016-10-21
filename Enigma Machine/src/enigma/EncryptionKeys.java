@@ -81,19 +81,29 @@ public class EncryptionKeys {
   }
 
   /**
-   * 
-   * @param valuesArray
-   * @param letter
-   * @return
+   * Converts the value into its respective letter.
+   * @param valuesArray is the array of all the characters and letters the cog will contain.
+   * @param value is the corresponding number to letter value.
+   * @return the letter.
    */
   public char convertToLetter(char valuesArray[], int value) {
-    
-    return 'a';
+    char temp = ' ';
+    for(int counter = 0; counter < valuesArray.length; counter++) {
+      if(value == counter) {
+        temp = valuesArray[counter];
+      }
+    }
+    return temp;
   }
   
   /**
    * 
-   * @param plainTxt
+   * @param plainT
+   * @param cipherT
+   * @param valuesArray
+   * @param c1
+   * @param c2
+   * @param c3
    */
   public void encryptPlainText(String plainT, String cipherT, char valuesArray[], Cog c1, Cog c2, Cog c3) {
     // Convert the plain text into an array of characters.
@@ -129,7 +139,7 @@ public class EncryptionKeys {
         }
       }
       // Add the encrypted character to the cipher text array.
-      tempCipherArray[letterValue] = valuesArray[letterValue];
+      tempCipherArray[letterValue] = convertToLetter(valuesArray, valuesArray[letterValue]);
       EnigmaMachine.cogRotate(c1,c2,c3);
     }
     // Convert the cipher text array to a string and assign it to the cpiherT string.
@@ -138,7 +148,7 @@ public class EncryptionKeys {
 
   /**
    * 
-   * @param cipherTxt
+   * @param cipherT
    */
   public void decryptCipherText(String cipherT) {
     // This method will decrypt the cipher text using the values of the cogs.
