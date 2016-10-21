@@ -24,8 +24,8 @@ public class GetInput {
   }
 
   /**
-   * This method is used to receive the user input to be used as number of values
-   *  for the cogs.
+   * This method is used to receive the user input to be used as number of values for the cogs.
+   * 
    * @return the number of values to be used for the cogs.
    */
   public int getNumberOfValuesForCogs() {

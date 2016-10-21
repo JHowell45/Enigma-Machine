@@ -1,7 +1,7 @@
 package enigma;
 
 public class Library {
-  
+
   /**
    * This method is used for holding all of the potential values for the cogs.
    * 
@@ -24,7 +24,7 @@ public class Library {
     } else {
       System.out.print("That's not possible!!");
     }
-    
+
     return valuesArray;
   }
 

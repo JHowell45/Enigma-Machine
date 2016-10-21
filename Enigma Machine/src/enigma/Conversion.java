@@ -3,10 +3,11 @@ package enigma;
 public class Conversion {
 
   /**
-   * Finds the letter within the values array and then converts it to its specific 
-   *        value within the array.
-   * @param valuesArray holds the array with all of the characters and numbers for the 
-   *        potential values.
+   * Finds the letter within the values array and then converts it to its specific value within the
+   * array.
+   * 
+   * @param valuesArray holds the array with all of the characters and numbers for the potential
+   *        values.
    * @param letter is the letter from the word to be converted.
    * @return the value of the character.
    */
@@ -22,18 +23,19 @@ public class Conversion {
 
   /**
    * Converts the value into its respective letter.
+   * 
    * @param valuesArray is the array of all the characters and letters the cog will contain.
    * @param value is the corresponding number to letter value.
    * @return the letter.
    */
   public char convertToLetter(char valuesArray[], int value) {
     char temp = ' ';
-    for(int counter = 0; counter < valuesArray.length; counter++) {
-      if(value == counter) {
+    for (int counter = 0; counter < valuesArray.length; counter++) {
+      if (value == counter) {
         temp = valuesArray[counter];
       }
     }
     return temp;
   }
- 
+
 }
