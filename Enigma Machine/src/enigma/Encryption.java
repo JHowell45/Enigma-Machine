@@ -73,8 +73,9 @@ public class Encryption {
         }
       }
       // Add the encrypted character to the cipher text array.
-      //   ERROR AT THIS LINE!!!!!!!!!!!!!!!
-      tempCipherArray[letterValue] = convert.convertToLetter(valuesArray, letterValue);
+      //   ERROR BELOW THIS LINE!!!!!!!!!!!!!!!
+      //tempCipherArray[letterValue] = convert.convertToLetter(valuesArray, letterValue);
+      //   ERROR ABOVE THIS LINE!!!!!!!!!!!!!!!
       EnigmaMachine.cogRotate(c1, c2, c3);
     }
     // Convert the cipher text array to a string and assign it to the cipherT string.
