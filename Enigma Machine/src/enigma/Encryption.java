@@ -7,7 +7,7 @@
 
 package enigma;
 
-public class EncryptionKeys {
+public class Encryption {
 
   /**
    * This method is used for getting the cogs collective key.
@@ -144,7 +144,7 @@ public class EncryptionKeys {
       tempCipherArray[letterValue] = convertToLetter(valuesArray, valuesArray[letterValue]);
       EnigmaMachine.cogRotate(c1,c2,c3);
     }
-    // Convert the cipher text array to a string and assign it to the cpiherT string.
+    // Convert the cipher text array to a string and assign it to the cipherT string.
     cipherT = tempCipherArray.toString();
   }
 
@@ -189,7 +189,12 @@ public class EncryptionKeys {
           }
         }
       }
+   // Add the decrypted character to the plain text array.
+      tempPlainArray[encryptedLetterValue] = convertToLetter(valuesArray, valuesArray[encryptedLetterValue]);
+      EnigmaMachine.cogRotate(c1,c2,c3);
     }
+ // Convert the plain text array to a string and assign it to the plainT string.
+    plainT = tempPlainArray.toString();
   }
 
 }

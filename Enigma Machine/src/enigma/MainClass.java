@@ -41,5 +41,6 @@ public class MainClass {
     EnigmaMachine eMachine = new EnigmaMachine();
     int numberOfValues = 26;
     eMachine.createCogs(numberOfValues, smallCog, mediumCog, largeCog);
+    getPlainText(plainText);
   }
 }
