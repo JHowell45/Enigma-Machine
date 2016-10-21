@@ -97,15 +97,17 @@ public class EncryptionKeys {
   }
   
   /**
-   * 
-   * @param plainT
-   * @param cipherT
-   * @param valuesArray
-   * @param c1
-   * @param c2
-   * @param c3
+   * This method is used to encrypt the plaintext and create the ciphertext.
+   * @param plainT is the plain text to be encrypted.
+   * @param cipherT is the text created when encrypting the plain text.
+   * @param valuesArray is the array of potential values the cogs can have.
+   * @param c1 is the first, smalles, cog.
+   * @param c2 is the second, middle, cog.
+   * @param c3 is the third, largest, cog.
    */
   public void encryptPlainText(String plainT, String cipherT, char valuesArray[], Cog c1, Cog c2, Cog c3) {
+    // Empties the cipher String.
+    cipherT = "";
     // Convert the plain text into an array of characters.
     char tempPlainArray[] = plainT.toCharArray();
     // Create an array for the ciphertext that is the same length as the plain text array.
@@ -118,21 +120,21 @@ public class EncryptionKeys {
         // Check if the number of values the cog has is 26.
         if(c1.getNumberOfValues() == 26) {
           if(valuesArray[letterValue] == c1.getNumberOfValues()) {
-            valuesArray[letterValue] = 0;
+            valuesArray[letterValue] = valuesArray[0];
           } else {
             valuesArray[letterValue] = valuesArray[letterValue++];
           }
        // Check if the number of values the cog has is 52.
         } else if (c1.getNumberOfValues() == 52) {
           if(valuesArray[letterValue] == c1.getNumberOfValues()) {
-            valuesArray[letterValue] = 0;
+            valuesArray[letterValue] = valuesArray[0];
           } else {
             valuesArray[letterValue] = valuesArray[letterValue++];
           }
        // Check if the number of values the cog has is 62.
         } else {
           if(valuesArray[letterValue] == c1.getNumberOfValues()) {
-            valuesArray[letterValue] = 0;
+            valuesArray[letterValue] = valuesArray[0];
           } else {
             valuesArray[letterValue] = valuesArray[letterValue++];
           }
@@ -147,11 +149,47 @@ public class EncryptionKeys {
   }
 
   /**
-   * 
-   * @param cipherT
+   * this method is used to decrypt the ciphertext into the plaintext.
+   * @param cipherT is the text created when encrypting the plain text.
+   * @param plainT is the plain text to be encrypted.
+   * @param valuesArray is the array of potential values the cogs can have.
+   * @param c1 is the first, smalles, cog.
+   * @param c2 is the second, middle, cog.
+   * @param c3 is the third, largest, cog.
    */
-  public void decryptCipherText(String cipherT) {
-    // This method will decrypt the cipher text using the values of the cogs.
+  public void decryptCipherText(String cipherT, String plainT, char valuesArray[], Cog c1, Cog c2, Cog c3) {
+    // Empties the plain text String.
+    plainT = "";
+    char tempCipherArray[] = cipherT.toCharArray();
+    char tempPlainArray[] = new char[tempCipherArray.length];
+    int encryptedLetterValue;
+    for(int encryptedLetter = 0; encryptedLetter < tempCipherArray.length; encryptedLetter++) {
+      encryptedLetterValue = convertToValue(valuesArray, tempCipherArray[encryptedLetter]);
+      for(int encryptKey = 0; encryptKey < getCogKey(c1,c2,c3); encryptKey++) {
+     // Check if the number of values the cog has is 26.
+        if(c1.getNumberOfValues() == 26) {
+          if(valuesArray[encryptedLetterValue] == 0) {
+            valuesArray[encryptedLetterValue] = valuesArray[c1.getNumberOfValues()];
+          } else {
+            valuesArray[encryptedLetterValue] = valuesArray[encryptedLetterValue--];
+          }
+       // Check if the number of values the cog has is 52.
+        } else if (c1.getNumberOfValues() == 52) {
+          if(valuesArray[encryptedLetterValue] == 0) {
+            valuesArray[encryptedLetterValue] = valuesArray[c1.getNumberOfValues()];
+          } else {
+            valuesArray[encryptedLetterValue] = valuesArray[encryptedLetterValue--];
+          }
+       // Check if the number of values the cog has is 62.
+        } else {
+          if(valuesArray[encryptedLetterValue] == 0) {
+            valuesArray[encryptedLetterValue] = valuesArray[c1.getNumberOfValues()];
+          } else {
+            valuesArray[encryptedLetterValue] = valuesArray[encryptedLetterValue--];
+          }
+        }
+      }
+    }
   }
 
 }
