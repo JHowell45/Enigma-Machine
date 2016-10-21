@@ -86,11 +86,11 @@ public class Encryption {
   }
 
   /**
-   * this method is used to decrypt the ciphertext into the plaintext.
+   * this method is used to decrypt the cipher text into the plain text.
    * 
    * @param cipherT is the text created when encrypting the plain text.
    * @param valuesArray is the array of potential values the cogs can have.
-   * @param c1 is the first, smalles, cog.
+   * @param c1 is the first, smallest, cog.
    * @param c2 is the second, middle, cog.
    * @param c3 is the third, largest, cog.
    * 
