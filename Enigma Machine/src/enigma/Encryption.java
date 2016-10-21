@@ -117,7 +117,7 @@ public class Encryption {
       EnigmaMachine.cogRotate(c1, c2, c3);
     }
     // Convert the plain text array to a string and assign it to the plainT string.
-    plainT = tempPlainArray.toString();
+    plainT = new String(tempPlainArray);
 
     return plainT;
   }

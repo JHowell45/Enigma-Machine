@@ -62,7 +62,7 @@ public class MainClass {
     cipherText = encrypt.encryptPlainText(plainText, valuesLibrary, sCog, mCog, lCog).toString();
     System.out.println("The number of values each cog has is: " + sCog.getNumberOfValues());
     System.out.println("The plain text encrypted is: " + cipherText);
-    //plainText = encrypt.decryptCipherText(cipherText, valuesLibrary, sCog, mCog, lCog);
-    //System.out.println("The cipher text decrypted is: " + plainText);
+    plainText = encrypt.decryptCipherText(cipherText, valuesLibrary, sCog, mCog, lCog);
+    System.out.println("The cipher text decrypted is: " + plainText);
   }
 }
