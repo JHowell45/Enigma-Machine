@@ -42,14 +42,17 @@ public class MainClass {
    */
   public static void main(String args[]) {
     int numberOfValues = 26;
+    plainText = "hello";
+    valuesLibrary = new char[numberOfValues];
     valuesLibrary = lib.potentialValues(numberOfValues);
-    Cog sCog = new Cog(numberOfValues, 0, "small");
-    Cog mCog = new Cog(numberOfValues, 0, "medium");
+    Cog sCog = new Cog(numberOfValues, 4, "small");
+    Cog mCog = new Cog(numberOfValues, 2, "medium");
     Cog lCog = new Cog(numberOfValues, 0, "large");
     //plainText = gInput.getPlainText();
-    plainText = "hello";
-    encrypt.encryptPlainText(plainText, cipherText, valuesLibrary, sCog, mCog, lCog);
-    System.out.println(sCog.getNumberOfValues());
     System.out.println(plainText);
+    int key = encrypt.getCogKey(sCog, mCog, lCog);
+    System.out.println("The key is: " + key);
+    cipherText = encrypt.encryptPlainText(plainText, valuesLibrary, sCog, mCog, lCog);
+    System.out.println(sCog.getNumberOfValues());
   }
 }
