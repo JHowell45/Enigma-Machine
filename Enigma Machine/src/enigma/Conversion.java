@@ -1,6 +1,6 @@
 package enigma;
 
-public class Convertion {
+public class Conversion {
 
   /**
    * Finds the letter within the values array and then converts it to its specific 

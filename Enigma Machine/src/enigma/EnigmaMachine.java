@@ -7,20 +7,6 @@
 package enigma;
 
 public class EnigmaMachine {
-
-  /**
-   * Method used for creating cogs to be used for the enigma machine.
-   * 
-   * @param numOfVals is the number of potential values each cog can have.
-   * @param sCog will hold the value of the smallest cog.
-   * @param mCog will hold the value of the middle cog.
-   * @param lCog will hold the value of the largest cog.
-   */
-  public void createCogs(int numOfVals, Cog sCog, Cog mCog, Cog lCog) {
-    sCog = new Cog(numOfVals, 0, "small");
-    mCog = new Cog(numOfVals, 0, "medium");
-    lCog = new Cog(numOfVals, 0, "large");
-  }
   
   /**
    * This method is used to rotate the cogs after encrypting a character.

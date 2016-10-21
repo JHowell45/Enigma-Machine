@@ -13,7 +13,7 @@ public class Encryption {
    * 
    * @param convert
    */
-  static Convertion convert = new Convertion();
+  static Conversion convert = new Conversion();
   
   /**
    * This method is used for getting the cogs collective key.

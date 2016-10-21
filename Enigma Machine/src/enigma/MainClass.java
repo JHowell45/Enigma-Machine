@@ -24,6 +24,7 @@ public class MainClass {
   private static String cipherText;
   private static char[] valuesLibrary;
   
+  
   /**
    * Variables allowing the use of methods from the other classes.
    * @param eMachine allows us to use methods from EnigmaMachine.
@@ -41,10 +42,14 @@ public class MainClass {
    */
   public static void main(String args[]) {
     int numberOfValues = 26;
-    eMachine.createCogs(numberOfValues, smallCog, mediumCog, largeCog);
     valuesLibrary = lib.potentialValues(numberOfValues);
-    plainText = gInput.getPlainText();
-    //encrypt.encryptPlainText(plainText, cipherText, valuesLibrary, smallCog, mediumCog, largeCog);
+    Cog sCog = new Cog(numberOfValues, 0, "small");
+    Cog mCog = new Cog(numberOfValues, 0, "medium");
+    Cog lCog = new Cog(numberOfValues, 0, "large");
+    //plainText = gInput.getPlainText();
+    plainText = "hello";
+    encrypt.encryptPlainText(plainText, cipherText, valuesLibrary, sCog, mCog, lCog);
+    System.out.println(sCog.getNumberOfValues());
     System.out.println(plainText);
   }
 }
