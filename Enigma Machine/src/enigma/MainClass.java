@@ -52,9 +52,15 @@ public class MainClass {
     plainText = "hello";
     valuesLibrary = new char[numberOfValues];
     valuesLibrary = lib.potentialValues(numberOfValues);
+    //Creating Cogs:
     Cog sCog = new Cog(numberOfValues, 4, "small");
     Cog mCog = new Cog(numberOfValues, 2, "medium");
     Cog lCog = new Cog(numberOfValues, 0, "large");
+    int sCogOriginalValue = sCog.getCurrentValue();
+    int mCogOriginalValue = mCog.getCurrentValue();
+    int lCogOriginalValue = lCog.getCurrentValue();
+    
+    
     // plainText = gInput.getPlainText();
     System.out.println("The plain text is: " + plainText);
     int key = encrypt.getCogKey(sCog, mCog, lCog);
@@ -62,6 +68,11 @@ public class MainClass {
     cipherText = encrypt.encryptPlainText(plainText, valuesLibrary, sCog, mCog, lCog).toString();
     System.out.println("The number of values each cog has is: " + sCog.getNumberOfValues());
     System.out.println("The plain text encrypted is: " + cipherText);
+    
+    sCog.setCurrentValue(sCogOriginalValue);
+    mCog.setCurrentValue(mCogOriginalValue);
+    lCog.setCurrentValue(lCogOriginalValue);
+    
     plainText = encrypt.decryptCipherText(cipherText, valuesLibrary, sCog, mCog, lCog);
     System.out.println("The cipher text decrypted is: " + plainText);
   }

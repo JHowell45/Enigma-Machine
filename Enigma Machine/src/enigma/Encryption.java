@@ -61,10 +61,7 @@ public class Encryption {
     // A for loop for all of the letters in the plain text array.
     for (int letter = 0; letter < tempPlainArray.length; letter++) {
       letterValue = convert.convertToValue(valuesArray, tempPlainArray[letter]);
-      //System.out.println("Iterating letter: " + convert.convertToLetter(valuesArray, letterValue));
       for (int encryptKey = 0; encryptKey < getCogKey(c1, c2, c3); encryptKey++) {
-        //System.out.println("Iterating for length of key, current no.: " + encryptKey);
-        //System.out.println("Cog1 current value: " + c1.getCurrentValue());
         if (valuesArray[letterValue] == c1.getNumberOfValues()) {
           valuesArray[letterValue] = valuesArray[0];
         } else {
@@ -73,7 +70,6 @@ public class Encryption {
       }
       // Add the encrypted character to the cipher text array.
       tempCipherArray[letter] = convert.convertToLetter(valuesArray, letterValue);
-      //System.out.println(tempCipherArray[letter]);
       EnigmaMachine.cogRotate(c1, c2, c3);
     }
     // Convert the cipher text array to a string and assign it to the cipherT string.
@@ -101,11 +97,7 @@ public class Encryption {
     int encryptedLetterValue;
     for (int encryptedLetter = 0; encryptedLetter < tempCipherArray.length; encryptedLetter++) {
       encryptedLetterValue = convert.convertToValue(valuesArray, tempCipherArray[encryptedLetter]);
-      System.out.println(
-          "Iterating letter: " + convert.convertToLetter(valuesArray, encryptedLetterValue));
       for (int encryptKey = 0; encryptKey < getCogKey(c1, c2, c3); encryptKey++) {
-        System.out.println("Iterating for length of key, current no.: " + encryptKey);
-        System.out.println("Cog1 current value: " + c1.getCurrentValue());
         if (valuesArray[encryptedLetterValue] == 0) {
           valuesArray[encryptedLetterValue] = valuesArray[(c1.getNumberOfValues()) - 1];
         } else {
