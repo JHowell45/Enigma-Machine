@@ -102,12 +102,12 @@ public class EncryptionKeys {
       letterValue = convertToValue(valuesArray, tempStringArray[letter]);
       for(int encryptKey = 0; encryptKey < getCogKey(c1,c2,c3); encryptKey++) {
         // Check if the number of values the cog has is 26.
-        if(valuesArray[letterValue] == 26) {
-          if(letterValue == c1.getNumberOfValues()) {
+        if(c1.getNumberOfValues() == 26) {
+          if(valuesArray[letterValue] == c1.getNumberOfValues()) {
             
           }
        // Check if the number of values the cog has is 52.
-        } else if (valuesArray[letterValue] == 52) {
+        } else if (c1.getNumberOfValues() == 52) {
           
        // Check if the number of values the cog has is 62.
         } else {
