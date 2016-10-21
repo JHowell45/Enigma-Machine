@@ -9,7 +9,8 @@ public class Library {
    * @param userChoice is the cchoice the user has made, e.g. lowercase, lower and upper, and lower,
    *        upper and numbers.
    */
-  public void potentialValues(char valuesArray[], int userChoice) {
+  public char[] potentialValues(int userChoice) {
+    char valuesArray[] = new char[0];
     // This method will hold all of the potential values for the cogs.
     if (userChoice == 26) {
       valuesArray = new char[26];
@@ -23,6 +24,8 @@ public class Library {
     } else {
       System.out.print("That's not possible!!");
     }
+    
+    return valuesArray;
   }
 
 }
