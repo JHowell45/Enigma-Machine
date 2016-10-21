@@ -54,5 +54,6 @@ public class MainClass {
     System.out.println("The key is: " + key);
     cipherText = encrypt.encryptPlainText(plainText, valuesLibrary, sCog, mCog, lCog);
     System.out.println(sCog.getNumberOfValues());
+    System.out.println(cipherText);
   }
 }

@@ -28,7 +28,7 @@ public class Conversion {
    */
   public char convertToLetter(char valuesArray[], int value) {
     char temp = ' ';
-    for(int counter = 0; counter < valuesArray.length-1; counter++) {
+    for(int counter = 0; counter < valuesArray.length; counter++) {
       if(value == counter) {
         temp = valuesArray[counter];
       }
