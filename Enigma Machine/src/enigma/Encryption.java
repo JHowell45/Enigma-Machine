@@ -1,6 +1,6 @@
 /**
- * This class is used for getting the cogs encryption key, converting letters to values and vice versa,
- * and also encrypt and decrypt the plaintext and ciphertext respectively.
+ * This class is used for getting the cogs encryption key and
+ *  encrypt and decrypt the plaintext and ciphertext respectively.
  * 
  * @author Jacob Howell
  */
@@ -9,6 +9,12 @@ package enigma;
 
 public class Encryption {
 
+  /**
+   * 
+   * @param convert
+   */
+  static Convertion convert = new Convertion();
+  
   /**
    * This method is used for getting the cogs collective key.
    * 
@@ -38,41 +44,7 @@ public class Encryption {
     }
     return temp;
   }
-
-  /**
-   * Finds the letter within the values array and then converts it to its specific 
-   *        value within the array.
-   * @param valuesArray holds the array with all of the characters and numbers for the 
-   *        potential values.
-   * @param letter is the letter from the word to be converted.
-   * @return the value of the character.
-   */
-  public int convertToValue(char valuesArray[], char letter) {
-    int temp = 0;
-    for (int value = 0; value < valuesArray.length; value++) {
-      if (valuesArray[value] == letter) {
-        temp = value;
-      }
-    }
-    return temp;
-  }
-
-  /**
-   * Converts the value into its respective letter.
-   * @param valuesArray is the array of all the characters and letters the cog will contain.
-   * @param value is the corresponding number to letter value.
-   * @return the letter.
-   */
-  public char convertToLetter(char valuesArray[], int value) {
-    char temp = ' ';
-    for(int counter = 0; counter < valuesArray.length; counter++) {
-      if(value == counter) {
-        temp = valuesArray[counter];
-      }
-    }
-    return temp;
-  }
-  
+ 
   /**
    * This method is used to encrypt the plaintext and create the ciphertext.
    * @param plainT is the plain text to be encrypted.
@@ -92,7 +64,7 @@ public class Encryption {
     int letterValue;
     // A for loop for all of the letters in the plain text array.
     for(int letter = 0; letter < tempPlainArray.length; letter++) {
-      letterValue = convertToValue(valuesArray, tempPlainArray[letter]);
+      letterValue = convert.convertToValue(valuesArray, tempPlainArray[letter]);
       for(int encryptKey = 0; encryptKey < getCogKey(c1,c2,c3); encryptKey++) {
         // Check if the number of values the cog has is 26.
         if(c1.getNumberOfValues() == 26) {
@@ -118,7 +90,7 @@ public class Encryption {
         }
       }
       // Add the encrypted character to the cipher text array.
-      tempCipherArray[letterValue] = convertToLetter(valuesArray, valuesArray[letterValue]);
+      tempCipherArray[letterValue] = convert.convertToLetter(valuesArray, valuesArray[letterValue]);
       EnigmaMachine.cogRotate(c1,c2,c3);
     }
     // Convert the cipher text array to a string and assign it to the cipherT string.
@@ -141,7 +113,7 @@ public class Encryption {
     char tempPlainArray[] = new char[tempCipherArray.length];
     int encryptedLetterValue;
     for(int encryptedLetter = 0; encryptedLetter < tempCipherArray.length; encryptedLetter++) {
-      encryptedLetterValue = convertToValue(valuesArray, tempCipherArray[encryptedLetter]);
+      encryptedLetterValue = convert.convertToValue(valuesArray, tempCipherArray[encryptedLetter]);
       for(int encryptKey = 0; encryptKey < getCogKey(c1,c2,c3); encryptKey++) {
      // Check if the number of values the cog has is 26.
         if(c1.getNumberOfValues() == 26) {
@@ -167,7 +139,7 @@ public class Encryption {
         }
       }
    // Add the decrypted character to the plain text array.
-      tempPlainArray[encryptedLetterValue] = convertToLetter(valuesArray, valuesArray[encryptedLetterValue]);
+      tempPlainArray[encryptedLetterValue] = convert.convertToLetter(valuesArray, valuesArray[encryptedLetterValue]);
       EnigmaMachine.cogRotate(c1,c2,c3);
     }
  // Convert the plain text array to a string and assign it to the plainT string.

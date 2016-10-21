@@ -25,13 +25,21 @@ public class MainClass {
   private static char[] valuesLibrary;
   
   /**
+   * Variables allowing the use of methods from the other classes.
+   * @param eMachine allows us to use methods from EnigmaMachine.
+   * @param encrypt allows us to use methods from Encryption.
+   * @param lib allows us to use methods from Library.
+   * @param gInput allows us to use methods from GetInput.
+   */
+  static EnigmaMachine eMachine = new EnigmaMachine();
+  static Encryption encrypt = new Encryption();
+  static Library lib = new Library();
+  static GetInput gInput = new GetInput();
+  
+  /**
    * This is the main method used for running the main program.
    */
   public static void main(String args[]) {
-    EnigmaMachine eMachine = new EnigmaMachine();
-    Encryption encrypt = new Encryption();
-    Library lib = new Library();
-    GetInput gInput = new GetInput();
     int numberOfValues = 26;
     eMachine.createCogs(numberOfValues, smallCog, mediumCog, largeCog);
     valuesLibrary = lib.potentialValues(numberOfValues);
