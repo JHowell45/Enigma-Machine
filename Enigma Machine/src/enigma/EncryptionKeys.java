@@ -82,15 +82,37 @@ public class EncryptionKeys {
 
   /**
    * 
+   * @param valuesArray
+   * @param letter
+   * @return
+   */
+  public char convertToLetter(char valuesArray[], int value) {
+    
+    return 'a';
+  }
+  
+  /**
+   * 
    * @param plainTxt
    */
   public void encryptPlainText(String plainT, char valuesArray[], Cog c1, Cog c2, Cog c3) {
     char tempStringArray[] = plainT.toCharArray();
-    int letterValue = 0;
+    int letterValue;
     for(int letter = 0; letter < tempStringArray.length; letter++) {
       letterValue = convertToValue(valuesArray, tempStringArray[letter]);
       for(int encryptKey = 0; encryptKey < getCogKey(c1,c2,c3); encryptKey++) {
-        
+        // Check if the number of values the cog has is 26.
+        if(valuesArray[letterValue] == 26) {
+          if(letterValue == c1.getNumberOfValues()) {
+            
+          }
+       // Check if the number of values the cog has is 52.
+        } else if (valuesArray[letterValue] == 52) {
+          
+       // Check if the number of values the cog has is 62.
+        } else {
+          
+        }
       }
       EnigmaMachine.cogRotate(c1,c2,c3);
     }
