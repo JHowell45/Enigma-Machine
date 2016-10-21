@@ -95,27 +95,45 @@ public class EncryptionKeys {
    * 
    * @param plainTxt
    */
-  public void encryptPlainText(String plainT, char valuesArray[], Cog c1, Cog c2, Cog c3) {
-    char tempStringArray[] = plainT.toCharArray();
+  public void encryptPlainText(String plainT, String cipherT, char valuesArray[], Cog c1, Cog c2, Cog c3) {
+    // Convert the plain text into an array of characters.
+    char tempPlainArray[] = plainT.toCharArray();
+    // Create an array for the ciphertext that is the same length as the plain text array.
+    char tempCipherArray[] = new char[tempPlainArray.length];
     int letterValue;
-    for(int letter = 0; letter < tempStringArray.length; letter++) {
-      letterValue = convertToValue(valuesArray, tempStringArray[letter]);
+    // A for loop for all of the letters in the plain text array.
+    for(int letter = 0; letter < tempPlainArray.length; letter++) {
+      letterValue = convertToValue(valuesArray, tempPlainArray[letter]);
       for(int encryptKey = 0; encryptKey < getCogKey(c1,c2,c3); encryptKey++) {
         // Check if the number of values the cog has is 26.
         if(c1.getNumberOfValues() == 26) {
           if(valuesArray[letterValue] == c1.getNumberOfValues()) {
-            
+            valuesArray[letterValue] = 0;
+          } else {
+            valuesArray[letterValue] = valuesArray[letterValue++];
           }
        // Check if the number of values the cog has is 52.
         } else if (c1.getNumberOfValues() == 52) {
-          
+          if(valuesArray[letterValue] == c1.getNumberOfValues()) {
+            valuesArray[letterValue] = 0;
+          } else {
+            valuesArray[letterValue] = valuesArray[letterValue++];
+          }
        // Check if the number of values the cog has is 62.
         } else {
-          
+          if(valuesArray[letterValue] == c1.getNumberOfValues()) {
+            valuesArray[letterValue] = 0;
+          } else {
+            valuesArray[letterValue] = valuesArray[letterValue++];
+          }
         }
       }
+      // Add the encrypted character to the cipher text array.
+      tempCipherArray[letterValue] = valuesArray[letterValue];
       EnigmaMachine.cogRotate(c1,c2,c3);
     }
+    // Convert the cipher text array to a string and assign it to the cpiherT string.
+    cipherT = tempCipherArray.toString();
   }
 
   /**
