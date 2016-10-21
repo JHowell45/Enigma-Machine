@@ -61,26 +61,23 @@ public class Encryption {
     // A for loop for all of the letters in the plain text array.
     for (int letter = 0; letter < tempPlainArray.length; letter++) {
       letterValue = convert.convertToValue(valuesArray, tempPlainArray[letter]);
-      // System.out.println("Iterating letter: " + convert.convertToLetter(valuesArray,
-      // letterValue));
+      //System.out.println("Iterating letter: " + convert.convertToLetter(valuesArray, letterValue));
       for (int encryptKey = 0; encryptKey < getCogKey(c1, c2, c3); encryptKey++) {
-        // System.out.println("Iterating for length of key, current no.: " + encryptKey);
-        // Check if the number of values the cog has is 26.
-        if (c1.getNumberOfValues() == 26) {
-          // System.out.println("Cog1 current value: " + c1.getCurrentValue());
-          if (valuesArray[letterValue] == c1.getNumberOfValues()) {
-            valuesArray[letterValue] = valuesArray[0];
-          } else {
-            valuesArray[letterValue] = valuesArray[letterValue++];
-          }
+        //System.out.println("Iterating for length of key, current no.: " + encryptKey);
+        //System.out.println("Cog1 current value: " + c1.getCurrentValue());
+        if (valuesArray[letterValue] == c1.getNumberOfValues()) {
+          valuesArray[letterValue] = valuesArray[0];
+        } else {
+          valuesArray[letterValue] = valuesArray[letterValue++];
         }
       }
       // Add the encrypted character to the cipher text array.
       tempCipherArray[letter] = convert.convertToLetter(valuesArray, letterValue);
+      //System.out.println(tempCipherArray[letter]);
       EnigmaMachine.cogRotate(c1, c2, c3);
     }
     // Convert the cipher text array to a string and assign it to the cipherT string.
-    cipherT = tempCipherArray.toString();
+    cipherT = new String(tempCipherArray);
 
     return cipherT;
   }
@@ -96,8 +93,7 @@ public class Encryption {
    * 
    * @return the decrypted cipher text (plain text).
    */
-  public String decryptCipherText(String cipherT, char valuesArray[], Cog c1, Cog c2,
-      Cog c3) {
+  public String decryptCipherText(String cipherT, char valuesArray[], Cog c1, Cog c2, Cog c3) {
     // Empties the plain text String.
     String plainT = "";
     char tempCipherArray[] = cipherT.toCharArray();
@@ -105,24 +101,24 @@ public class Encryption {
     int encryptedLetterValue;
     for (int encryptedLetter = 0; encryptedLetter < tempCipherArray.length; encryptedLetter++) {
       encryptedLetterValue = convert.convertToValue(valuesArray, tempCipherArray[encryptedLetter]);
+      System.out.println(
+          "Iterating letter: " + convert.convertToLetter(valuesArray, encryptedLetterValue));
       for (int encryptKey = 0; encryptKey < getCogKey(c1, c2, c3); encryptKey++) {
-        // Check if the number of values the cog has is 26.
-        if (c1.getNumberOfValues() == 26) {
-          if (valuesArray[encryptedLetterValue] == 0) {
-            valuesArray[encryptedLetterValue] = valuesArray[c1.getNumberOfValues()];
-          } else {
-            valuesArray[encryptedLetterValue] = valuesArray[encryptedLetterValue--];
-          }
-        } 
+        System.out.println("Iterating for length of key, current no.: " + encryptKey);
+        System.out.println("Cog1 current value: " + c1.getCurrentValue());
+        if (valuesArray[encryptedLetterValue] == 0) {
+          valuesArray[encryptedLetterValue] = valuesArray[(c1.getNumberOfValues()) - 1];
+        } else {
+          valuesArray[encryptedLetterValue] = valuesArray[encryptedLetterValue--];
+        }
       }
       // Add the decrypted character to the plain text array.
-      tempPlainArray[encryptedLetter] =
-          convert.convertToLetter(valuesArray, valuesArray[encryptedLetterValue]);
+      tempPlainArray[encryptedLetter] = convert.convertToLetter(valuesArray, encryptedLetterValue);
       EnigmaMachine.cogRotate(c1, c2, c3);
     }
     // Convert the plain text array to a string and assign it to the plainT string.
     plainT = tempPlainArray.toString();
-    
+
     return plainT;
   }
 
