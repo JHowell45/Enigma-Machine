@@ -28,7 +28,7 @@ public class EnigmaMachine {
    * @param mCog represents the medium cog in the enigma machine.
    * @param lCog represents the large cog in the enigma machine.
    */
-  public void cogRotate(Cog sCog, Cog mCog, Cog lCog) {
+  public static void cogRotate(Cog sCog, Cog mCog, Cog lCog) {
     if(sCog.getCurrentValue() < sCog.getNumberOfValues()) {
       int temp_small = sCog.getCurrentValue() + 1;
       sCog.setCurrentValue(temp_small);

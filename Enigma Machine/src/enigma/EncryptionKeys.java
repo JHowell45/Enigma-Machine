@@ -1,6 +1,6 @@
 /**
- * This class is used for storing the values for the cogs and for 
- * creating and accessing the encryption keys to be used.
+ * This class is used for storing the values for the cogs and for creating and accessing the
+ * encryption keys to be used.
  * 
  * @author Jacob Howell
  */
@@ -8,9 +8,10 @@
 package enigma;
 
 public class EncryptionKeys {
-  
+
   /**
    * This method is used for getting the cogs collective key.
+   * 
    * @param c1 is the first, smallest, cog in the Enigma machine.
    * @param c2 is the second, middle-sized, cog in the Enigma machine.
    * @param c3 is the third, largest, cog in the Enigma machine.
@@ -22,14 +23,14 @@ public class EncryptionKeys {
     int c3Value = c3.getCurrentValue();
     int temp = 0;
     // If statement is used to make sure none of the cog values are 0.
-    if(c1Value !=0 && c2Value !=0 && c3Value !=0) {
+    if (c1Value != 0 && c2Value != 0 && c3Value != 0) {
       temp = c1Value * c2Value * c3Value;
       // If any of the cog values are zero it ignores it when doing the multiplication.
-    } else if(c1Value == 0) {
+    } else if (c1Value == 0) {
       temp = c2Value * c3Value;
-    } else if(c2Value == 0) {
+    } else if (c2Value == 0) {
       temp = c1Value * c3Value;
-    } else if(c3Value == 0) {
+    } else if (c3Value == 0) {
       temp = c1Value * c2Value;
     } else {
       // if all are zero it sets the key value to 3.
@@ -37,41 +38,64 @@ public class EncryptionKeys {
     }
     return temp;
   }
-  
+
   /**
    * This method is used for holding all of the potential values for the cogs.
    * 
    * @param values[] is used to hold all of the values.
-   * @param userChoice is the cchoice the user has made, e.g. lowercase, lower and upper, 
-   *        and lower, upper and numbers.
+   * @param userChoice is the cchoice the user has made, e.g. lowercase, lower and upper, and lower,
+   *        upper and numbers.
    */
-  public void potentialValues(char values[], int userChoice) {
+  public void potentialValues(char valuesArray[], int userChoice) {
     // This method will hold all of the potential values for the cogs.
-    if(userChoice == 26) {
-      values = new char[26];
-      values = "abcdefghijklmnopqrstuvwxyz".toCharArray();
-    } else if(userChoice == 52) {
-      values = new char[52];
-      values = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
-    } else if(userChoice == 62) {
-      values = new char[62];
-      values = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".toCharArray();
+    if (userChoice == 26) {
+      valuesArray = new char[26];
+      valuesArray = "abcdefghijklmnopqrstuvwxyz".toCharArray();
+    } else if (userChoice == 52) {
+      valuesArray = new char[52];
+      valuesArray = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+    } else if (userChoice == 62) {
+      valuesArray = new char[62];
+      valuesArray = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".toCharArray();
     } else {
       System.out.print("That's not possible!!");
     }
   }
-  
+
+  /**
+   * Finds the letter within the values array and then converts it to its specific 
+   *        value within the array.
+   * @param valuesArray holds the array with all of the characters and numbers for the 
+   *        potential values.
+   * @param letter is the letter from the word to be converted.
+   * @return the value of the character.
+   */
+  public int convertToValue(char valuesArray[], char letter) {
+    int temp = 0;
+    for (int value = 0; value < valuesArray.length; value++) {
+      if (valuesArray[value] == letter) {
+        temp = value;
+      }
+    }
+    return temp;
+  }
+
   /**
    * 
    * @param plainTxt
    */
-  public void encryptPlainText(String plainT, Cog c1, Cog c2, Cog c3) {
+  public void encryptPlainText(String plainT, char valuesArray[], Cog c1, Cog c2, Cog c3) {
     char tempStringArray[] = plainT.toCharArray();
-    for(int i=0; i<tempStringArray.length; i++) {
-      
+    int letterValue = 0;
+    for(int letter = 0; letter < tempStringArray.length; letter++) {
+      letterValue = convertToValue(valuesArray, tempStringArray[letter]);
+      for(int encryptKey = 0; encryptKey < getCogKey(c1,c2,c3); encryptKey++) {
+        
+      }
+      EnigmaMachine.cogRotate(c1,c2,c3);
     }
   }
-  
+
   /**
    * 
    * @param cipherTxt
@@ -79,5 +103,5 @@ public class EncryptionKeys {
   public void decryptCipherText(String cipherT) {
     // This method will decrypt the cipher text using the values of the cogs.
   }
-  
+
 }
