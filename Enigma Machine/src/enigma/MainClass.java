@@ -12,29 +12,25 @@ import java.util.Scanner;
 public class MainClass {
 
   /**
-   * Private variables used for storing key values for running the enigma program.
+   * Private variables used for storing key values for running the Enigma program.
    * 
    * @param sCog is used for holding the key information for the small cog.
    * @param mCog is used for holding the key information for the medium cog.
    * @param lCog is used for holding the key information for the large cog.
-   * @param plainText is used for storing the plain text to be encrypted.
    * @param plainTextArray is used for storing an array of plain text, such as a sentence, to be
    *        encrypted.
    * @param cipherTextArray is used for storing an array of cipher text, such as a sentence, to be
    *        decrypted.
-   * @param cipherText is used for storing the encrypted plain text, which can be decryted back into
-   *        plain text.
    * @param valuesLibrary is used for storing all of the character values of the cogs.
+   * @param cogStartValues i used to store the start values of all the cogs.
    */
   private static Cog sCog;
   private static Cog mCog;
   private static Cog lCog;
-  private static String plainText;
   private static String plainTextArray[];
-  private static String cipherText;
   private static String cipherTextArray[];
   private static char valuesLibrary[];
-  private static int cogStartValues[];
+  private static int cogStartValues[] = new int[3];
 
   /**
    * Variables allowing the use of methods from the other classes.
@@ -69,41 +65,39 @@ public class MainClass {
     int numberOfValues = 26;
     valuesLibrary = new char[numberOfValues];
     valuesLibrary = lib.potentialValues(numberOfValues);
+
+    // Get cog start values
+    cogStartValues = gInput.getCogStartVals(sCog, numberOfValues);
+
     // Creating Cogs:
-    sCog = new Cog(numberOfValues, 4, "small");
-    mCog = new Cog(numberOfValues, 2, "medium");
-    lCog = new Cog(numberOfValues, 0, "large");
-    // Creating original values for each Cog
+    sCog = new Cog(numberOfValues, cogStartValues[0], "small");
+    mCog = new Cog(numberOfValues, cogStartValues[1], "medium");
+    lCog = new Cog(numberOfValues, cogStartValues[2], "large");
+
+    // Storing original values for each Cog
     int sCogVal = sCog.getCurrentValue();
     int mCogVal = mCog.getCurrentValue();
     int lCogVal = lCog.getCurrentValue();
 
-    // plainText = gInput.getPlainText();
-    plainText = "hello";
+    // Getting input of plain text sentence to be stored and printing the the array of plain text
+    // words.
     plainTextArray = gInput.getPlainTextArray();
-    // System.out.println("The plain text is: " + plainText);
     printStringArray(plainTextArray);
     System.out.println();
-    // System.out.println("The plain text array is: " + plainTextArray);
-    int key = encrypt.getCogKey(sCog, mCog, lCog);
-    System.out.println("The key is: " + key);
-    System.out.println("The number of values each cog has is: " + sCog.getNumberOfValues());
-    // cipherText = encrypt.encryptPlainText(plainText, valuesLibrary, sCog, mCog, lCog);
-    // System.out.println("The plain text encrypted is: " + cipherText);
+
+    // Creating cipher text and printing it out.
     cipherTextArray =
         encrypt.encryptPlainTextArray(plainTextArray, valuesLibrary, sCog, mCog, lCog);
     printStringArray(cipherTextArray);
 
+    // Resetting the cogs for decryption.
     sCog.setCurrentValue(sCogVal);
     mCog.setCurrentValue(mCogVal);
     lCog.setCurrentValue(lCogVal);
 
+    // storing decrypted cipher text into the plainText variable and printing it.
     plainTextArray =
         encrypt.decryptionPlainTextArray(cipherTextArray, valuesLibrary, sCog, mCog, lCog);
     printStringArray(plainTextArray);
-    /*
-     * plainText = encrypt.decryptCipherText(cipherText, valuesLibrary, sCog, mCog, lCog);
-     * System.out.println("The cipher text decrypted is: " + plainText);
-     */
   }
 }

@@ -46,39 +46,53 @@ public class GetInput {
 
   /**
    * This method is to get the user to input the starting values of each cog.
+   * 
    * @param cogMaxValue is the max value a cog can have.
    * @return the array containing all of the values.
    */
   public int[] getCogStartVals(Cog anyCog, int cogMaxValue) {
     int cogValues[] = new int[3];
     int temp;
+    boolean loop = true;
     Scanner scan = new Scanner(System.in);
-    System.out.println("Please enter the values of the first cog: ");
-    temp = scan.nextInt();
-    if (temp < cogMaxValue) {
-      cogValues[0] = temp;
-    } else {
-      System.out.println("That number is too large! please enter a number less than "
-          + anyCog.getNumberOfValues());
+    while (loop) {
+      System.out.println("Please enter the values of the first cog: ");
+      temp = scan.nextInt();
+      if (temp < cogMaxValue) {
+        cogValues[0] = temp;
+        loop = false;
+      } else {
+        System.out.println("That number is too large! please enter a number less than "
+            + anyCog.getNumberOfValues());
+        loop = true;
+      }
     }
-    System.out.println("Please enter the values of the second cog: ");
-    scan.nextInt();
-    if (temp < cogMaxValue) {
-      cogValues[1] = temp;
-    } else {
-      System.out.println("That number is too large! please enter a number less than "
-          + anyCog.getNumberOfValues());
+    while (loop) {
+      System.out.println("Please enter the values of the second cog: ");
+      temp = scan.nextInt();
+      if (temp < cogMaxValue) {
+        cogValues[1] = temp;
+        loop = false;
+      } else {
+        System.out.println("That number is too large! please enter a number less than "
+            + anyCog.getNumberOfValues());
+        loop = true;
+      }
     }
-    System.out.println("Please enter the values of the third cog: ");
-    scan.nextInt();
-    if (temp < cogMaxValue) {
-      cogValues[2] = temp;
-    } else {
-      System.out.println("That number is too large! please enter a number less than "
-          + anyCog.getNumberOfValues());
+    while (loop) {
+      System.out.println("Please enter the values of the third cog: ");
+      temp = scan.nextInt();
+      if (temp < cogMaxValue) {
+        cogValues[2] = temp;
+        loop = false;
+      } else {
+        System.out.println("That number is too large! please enter a number less than "
+            + anyCog.getNumberOfValues());
+        loop = true;
+      }
     }
     scan.close();
-    return null;
+    return cogValues;
   }
 
 }
