@@ -53,15 +53,11 @@ public class Encryption {
       Cog c3) {
     String cipherT = "";
     String cipherTextArray[] = new String[plainTArray.length];
-    int counter = 0;
-    for (String word : plainTArray) {
-      char tempPlainArray[] = word.toCharArray();
-      // Create an array for the ciphertext that is the same length as the plain text array.
-      char tempCipherArray[] = new char[tempPlainArray.length];
-      int letterValue;
-      // A for loop for all of the letters in the plain text array.
-      for (int letter = 0; letter < tempPlainArray.length; letter++) {
-        letterValue = convert.convertToValue(valuesArray, tempPlainArray[letter]);
+    for (int counter = 0; counter < plainTArray.length; counter++) {
+      char tempPlainCharArray[] = plainTArray[counter].toCharArray();
+      char tempCipherCharArray[] = new char[tempPlainCharArray.length];
+      for (int letter = 0; letter < tempPlainCharArray.length; letter++) {
+        int letterValue = convert.convertToValue(valuesArray, tempPlainCharArray[letter]);
         for (int encryptKey = 0; encryptKey < getCogKey(c1, c2, c3); encryptKey++) {
           if (letterValue == c1.getNumberOfValues() - 1) {
             valuesArray[letterValue] = valuesArray[0];
@@ -69,14 +65,11 @@ public class Encryption {
             valuesArray[letterValue] = valuesArray[letterValue++];
           }
         }
-        // Add the encrypted character to the cipher text array.
-        tempCipherArray[letter] = convert.convertToLetter(valuesArray, letterValue);
+        tempCipherCharArray[letter] = convert.convertToLetter(valuesArray, letterValue);
         EnigmaMachine.cogRotate(c1, c2, c3);
       }
-      // Convert the cipher text array to a string and assign it to the cipherT string.
-      cipherT = new String(tempCipherArray);
+      cipherT = new String(tempCipherCharArray);
       cipherTextArray[counter] = cipherT;
-      counter++;
     }
     return cipherTextArray;
   }
@@ -110,12 +103,10 @@ public class Encryption {
             valuesArray[encryptedLetterValue] = valuesArray[encryptedLetterValue--];
           }
         }
-        // Add the decrypted character to the plain text array.
         tempPlainArray[encryptedLetter] =
             convert.convertToLetter(valuesArray, encryptedLetterValue);
         EnigmaMachine.cogRotate(c1, c2, c3);
       }
-      // Convert the plain text array to a string and assign it to the plainT string.
       plainT = new String(tempPlainArray);
       plainTextArray[counter] = plainT;
       counter++;
