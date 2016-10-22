@@ -16,11 +16,29 @@ public class GetInput {
    */
   public String getPlainText() {
     Scanner scanPlainText = new Scanner(System.in);
-    System.out.println("Please enter some ciphertext: ");
+    System.out.println("Please enter some plaintext: ");
     String plainT = scanPlainText.nextLine();
     scanPlainText.close();
 
     return plainT;
+  }
+
+  /**
+   * 
+   * @return
+   */
+  public String[] getPlainTextArray() {
+    String plainTextArray[];
+    Scanner scanPlainText = new Scanner(System.in);
+    System.out.println("Please enter some plaintext: ");
+    String userInput = scanPlainText.nextLine().toLowerCase();
+    //System.out.println(userInput);
+    plainTextArray = userInput.split(" ");
+    /*for(String ss : plainTextArray) {
+      System.out.println(ss);
+    }*/
+    scanPlainText.close();
+    return plainTextArray;
   }
 
   /**

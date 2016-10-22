@@ -22,13 +22,10 @@ public class MainClass {
    *        plain text.
    * @param valuesLibrary is used for storing all of the character values of the cogs.
    */
-  private static Cog smallCog;
-  private static Cog mediumCog;
-  private static Cog largeCog;
   private static String plainText;
+  private static String plainTextArray[];
   private static String cipherText;
   private static char[] valuesLibrary;
-
 
   /**
    * Variables allowing the use of methods from the other classes.
@@ -49,30 +46,36 @@ public class MainClass {
   public static void main(String args[]) {
     System.out.println("|------------------------- Enigma Machine -------------------------|");
     int numberOfValues = 26;
-    plainText = "hello";
     valuesLibrary = new char[numberOfValues];
     valuesLibrary = lib.potentialValues(numberOfValues);
-    //Creating Cogs:
+    // Creating Cogs:
     Cog sCog = new Cog(numberOfValues, 4, "small");
     Cog mCog = new Cog(numberOfValues, 2, "medium");
     Cog lCog = new Cog(numberOfValues, 0, "large");
-    int sCogOriginalValue = sCog.getCurrentValue();
-    int mCogOriginalValue = mCog.getCurrentValue();
-    int lCogOriginalValue = lCog.getCurrentValue();
-    
-    
-    // plainText = gInput.getPlainText();
-    System.out.println("The plain text is: " + plainText);
+
+    int sCogVal = sCog.getCurrentValue();
+    int mCogVal = mCog.getCurrentValue();
+    int lCogVal = lCog.getCurrentValue();
+
+    //plainText = gInput.getPlainText();
+    plainText = "hello";
+    plainTextArray = gInput.getPlainTextArray();
+    //System.out.println("The plain text is: " + plainText);
+    for(String s : plainTextArray) {
+      System.out.print(s + " ");
+    }
+    System.out.println();
+    //System.out.println("The plain text array is: " + plainTextArray);
     int key = encrypt.getCogKey(sCog, mCog, lCog);
     System.out.println("The key is: " + key);
-    cipherText = encrypt.encryptPlainText(plainText, valuesLibrary, sCog, mCog, lCog).toString();
     System.out.println("The number of values each cog has is: " + sCog.getNumberOfValues());
+    cipherText = encrypt.encryptPlainText(plainText, valuesLibrary, sCog, mCog, lCog);
     System.out.println("The plain text encrypted is: " + cipherText);
-    
-    sCog.setCurrentValue(sCogOriginalValue);
-    mCog.setCurrentValue(mCogOriginalValue);
-    lCog.setCurrentValue(lCogOriginalValue);
-    
+
+    sCog.setCurrentValue(sCogVal);
+    mCog.setCurrentValue(mCogVal);
+    lCog.setCurrentValue(lCogVal);
+
     plainText = encrypt.decryptCipherText(cipherText, valuesLibrary, sCog, mCog, lCog);
     System.out.println("The cipher text decrypted is: " + plainText);
   }
