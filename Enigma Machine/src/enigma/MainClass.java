@@ -67,7 +67,7 @@ public class MainClass {
     valuesLibrary = lib.potentialValues(numberOfValues);
 
     // Get cog start values
-    cogStartValues = gInput.getCogStartVals(sCog, numberOfValues);
+    cogStartValues = gInput.getCogStartVals(numberOfValues);
 
     // Creating Cogs:
     sCog = new Cog(numberOfValues, cogStartValues[0], "small");

@@ -50,7 +50,7 @@ public class GetInput {
    * @param cogMaxValue is the max value a cog can have.
    * @return the array containing all of the values.
    */
-  public int[] getCogStartVals(Cog anyCog, int cogMaxValue) {
+  public int[] getCogStartVals(int cogMaxValue) {
     int cogValues[] = new int[3];
     int temp;
     boolean loop = true;
@@ -63,7 +63,7 @@ public class GetInput {
         loop = false;
       } else {
         System.out.println("That number is too large! please enter a number less than "
-            + anyCog.getNumberOfValues());
+            + cogMaxValue);
         loop = true;
       }
     }
@@ -75,7 +75,7 @@ public class GetInput {
         loop = false;
       } else {
         System.out.println("That number is too large! please enter a number less than "
-            + anyCog.getNumberOfValues());
+            + cogMaxValue);
         loop = true;
       }
     }
@@ -87,7 +87,7 @@ public class GetInput {
         loop = false;
       } else {
         System.out.println("That number is too large! please enter a number less than "
-            + anyCog.getNumberOfValues());
+            + cogMaxValue);
         loop = true;
       }
     }
