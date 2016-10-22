@@ -51,41 +51,43 @@ public class GetInput {
   public int[] getCogStartVals(int cogMaxValue, Scanner scan) {
     int cogValues[] = new int[3];
     int temp;
-    boolean loop = true;
-    while (loop) {
+    boolean loop1 = true;
+    boolean loop2 = true;
+    boolean loop3 = true;
+    while (loop1) {
       System.out.println("Please enter the values of the first cog: ");
       temp = scan.nextInt();
       if (temp < cogMaxValue) {
         cogValues[0] = temp;
-        loop = false;
+        loop1 = false;
       } else {
         System.out.println("That number is too large! please enter a number less than "
             + cogMaxValue);
-        loop = true;
+        loop1 = true;
       }
     }
-    while (loop) {
+    while (loop2) {
       System.out.println("Please enter the values of the second cog: ");
       temp = scan.nextInt();
       if (temp < cogMaxValue) {
         cogValues[1] = temp;
-        loop = false;
+        loop2 = false;
       } else {
         System.out.println("That number is too large! please enter a number less than "
             + cogMaxValue);
-        loop = true;
+        loop2 = true;
       }
     }
-    while (loop) {
+    while (loop3) {
       System.out.println("Please enter the values of the third cog: ");
       temp = scan.nextInt();
       if (temp < cogMaxValue) {
         cogValues[2] = temp;
-        loop = false;
+        loop3 = false;
       } else {
         System.out.println("That number is too large! please enter a number less than "
             + cogMaxValue);
-        loop = true;
+        loop3 = true;
       }
     }
     return cogValues;
