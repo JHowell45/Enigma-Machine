@@ -24,19 +24,15 @@ public class GetInput {
   }
 
   /**
-   * 
-   * @return
+   * This method is used for getting sentences from the user.
+   * @return the plain text array to be used.
    */
   public String[] getPlainTextArray() {
     String plainTextArray[];
     Scanner scanPlainText = new Scanner(System.in);
     System.out.println("Please enter some plaintext: ");
     String userInput = scanPlainText.nextLine().toLowerCase();
-    //System.out.println(userInput);
     plainTextArray = userInput.split(" ");
-    /*for(String ss : plainTextArray) {
-      System.out.println(ss);
-    }*/
     scanPlainText.close();
     return plainTextArray;
   }
