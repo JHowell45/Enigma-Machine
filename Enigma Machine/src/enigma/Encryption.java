@@ -60,7 +60,7 @@ public class Encryption {
         int letterValue = convert.convertToValue(valuesArray, tempPlainCharArray[letter]);
         for (int encryptKey = 0; encryptKey < getCogKey(c1, c2, c3); encryptKey++) {
           if (letterValue == c1.getNumberOfValues() - 1) {
-            valuesArray[letterValue] = valuesArray[0];
+            letterValue = 0;
           } else {
             valuesArray[letterValue] = valuesArray[letterValue++];
           }
@@ -98,7 +98,7 @@ public class Encryption {
             convert.convertToValue(valuesArray, tempCipherArray[encryptedLetter]);
         for (int encryptKey = 0; encryptKey < getCogKey(c1, c2, c3); encryptKey++) {
           if (encryptedLetterValue == 0) {
-            valuesArray[encryptedLetterValue] = valuesArray[(c1.getNumberOfValues()) - 1];
+            encryptedLetterValue = c1.getNumberOfValues()-1;
           } else {
             valuesArray[encryptedLetterValue] = valuesArray[encryptedLetterValue--];
           }
