@@ -31,6 +31,8 @@ public class MainClass {
   private static String cipherTextArray[];
   private static char valuesLibrary[];
   private static int cogStartValues[] = new int[3];
+  private static Scanner scanCogStartValue = new Scanner(System.in);
+  private static Scanner scanPlainText = new Scanner(System.in);
 
   /**
    * Variables allowing the use of methods from the other classes.
@@ -67,7 +69,7 @@ public class MainClass {
     valuesLibrary = lib.potentialValues(numberOfValues);
 
     // Get cog start values
-    cogStartValues = gInput.getCogStartVals(numberOfValues);
+    cogStartValues = gInput.getCogStartVals(numberOfValues, scanCogStartValue);
 
     // Creating Cogs:
     sCog = new Cog(numberOfValues, cogStartValues[0], "small");
@@ -81,7 +83,7 @@ public class MainClass {
 
     // Getting input of plain text sentence to be stored and printing the the array of plain text
     // words.
-    plainTextArray = gInput.getPlainTextArray();
+    plainTextArray = gInput.getPlainTextArray(scanPlainText);
     printStringArray(plainTextArray);
     System.out.println();
 
@@ -99,5 +101,7 @@ public class MainClass {
     plainTextArray =
         encrypt.decryptionPlainTextArray(cipherTextArray, valuesLibrary, sCog, mCog, lCog);
     printStringArray(plainTextArray);
+    scanCogStartValue.close();
+    scanPlainText.close();
   }
 }

@@ -15,9 +15,8 @@ public class GetInput {
    * 
    * @return the plain text array to be used.
    */
-  public String[] getPlainTextArray() {
+  public String[] getPlainTextArray(Scanner scanPlainText) {
     String plainTextArray[];
-    Scanner scanPlainText = new Scanner(System.in);
     System.out.println("Please enter some plaintext: ");
     String userInput = scanPlainText.nextLine().toLowerCase();
     plainTextArray = userInput.split(" ");
@@ -30,14 +29,13 @@ public class GetInput {
    * 
    * @return the number of values to be used for the cogs.
    */
-  public int getNumberOfValuesForCogs() {
-    Scanner scanCogValue = new Scanner(System.in);
+  public int getNumberOfValuesForCogs(Scanner scanCogValue) {
     System.out.println("Please enter the number of values the Cogs should have,"
         + " the values can only be 26, 52 or 62: ");
     int numOfVals = scanCogValue.nextInt();
     if (numOfVals != 26 || numOfVals != 52 || numOfVals != 62) {
       System.out.println("Sorry that is nto a correct value, please try again!");
-      getNumberOfValuesForCogs();
+      getNumberOfValuesForCogs(scanCogValue);
     }
     scanCogValue.close();
 
@@ -50,11 +48,10 @@ public class GetInput {
    * @param cogMaxValue is the max value a cog can have.
    * @return the array containing all of the values.
    */
-  public int[] getCogStartVals(int cogMaxValue) {
+  public int[] getCogStartVals(int cogMaxValue, Scanner scan) {
     int cogValues[] = new int[3];
     int temp;
     boolean loop = true;
-    Scanner scan = new Scanner(System.in);
     while (loop) {
       System.out.println("Please enter the values of the first cog: ");
       temp = scan.nextInt();
@@ -91,7 +88,6 @@ public class GetInput {
         loop = true;
       }
     }
-    scan.close();
     return cogValues;
   }
 
