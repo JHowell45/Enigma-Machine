@@ -34,6 +34,7 @@ public class MainClass {
   private static String cipherText;
   private static String cipherTextArray[];
   private static char valuesLibrary[];
+  private static int cogStartValues[];
 
   /**
    * Variables allowing the use of methods from the other classes.
