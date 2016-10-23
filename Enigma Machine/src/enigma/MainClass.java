@@ -64,7 +64,7 @@ public class MainClass {
    */
   public static void main(String args[]) {
     System.out.println("|------------------------- Enigma Machine -------------------------|");
-    int numberOfValues = 26;
+    int numberOfValues = 62;
     valuesLibrary = new char[numberOfValues];
     valuesLibrary = lib.potentialValues(numberOfValues);
 

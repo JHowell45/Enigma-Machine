@@ -10,20 +10,8 @@ public class Library {
    *        upper and numbers.
    */
   public char[] potentialValues(int userChoice) {
-    char valuesArray[] = new char[0];
-    // This method will hold all of the potential values for the cogs.
-    if (userChoice == 26) {
-      valuesArray = new char[26];
-      valuesArray = "abcdefghijklmnopqrstuvwxyz".toCharArray();
-    } else if (userChoice == 52) {
-      valuesArray = new char[52];
-      valuesArray = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
-    } else if (userChoice == 62) {
-      valuesArray = new char[62];
+    char valuesArray[] = new char[62];
       valuesArray = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".toCharArray();
-    } else {
-      System.out.print("That's not possible!!");
-    }
 
     return valuesArray;
   }
