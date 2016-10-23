@@ -26,24 +26,6 @@ public class GetInput {
   }
 
   /**
-   * This method is used to receive the user input to be used as number of values for the cogs.
-   * 
-   * @return the number of values to be used for the cogs.
-   */
-  public int getNumberOfValuesForCogs(Scanner scanCogValue) {
-    System.out.println("Please enter the number of values the Cogs should have,"
-        + " the values can only be 26, 52 or 62: ");
-    int numOfVals = scanCogValue.nextInt();
-    if (numOfVals != 26 || numOfVals != 52 || numOfVals != 62) {
-      System.out.println("Sorry that is nto a correct value, please try again!");
-      getNumberOfValuesForCogs(scanCogValue);
-    }
-    scanCogValue.close();
-
-    return numOfVals;
-  }
-
-  /**
    * This method is to get the user to input the starting values of each cog.
    * 
    * @param cogMaxValue is the max value a cog can have.
