@@ -6,6 +6,7 @@
 
 package enigma;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class GetInput {
@@ -50,43 +51,65 @@ public class GetInput {
    */
   public int[] getCogStartVals(int cogMaxValue, Scanner scan) {
     int cogValues[] = new int[3];
-    int temp;
+    int temp = 0;
     boolean loop1 = true;
     boolean loop2 = true;
     boolean loop3 = true;
     while (loop1) {
       System.out.println("Please enter the values of the first cog: ");
-      temp = scan.nextInt();
+      try {
+        temp = scan.nextInt();
+      } catch (InputMismatchException e) {
+        System.out.println("Please enter only numbers!");
+        scan.next();
+        loop1 = true;
+        continue;
+      } 
+
       if (temp < cogMaxValue) {
         cogValues[0] = temp;
         loop1 = false;
       } else {
-        System.out.println("That number is too large! please enter a number less than "
-            + cogMaxValue);
+        System.out
+            .println("That number is too large! please enter a number less than " + cogMaxValue);
         loop1 = true;
       }
     }
     while (loop2) {
       System.out.println("Please enter the values of the second cog: ");
-      temp = scan.nextInt();
+      try {
+        temp = scan.nextInt();
+      } catch (InputMismatchException e) {
+        System.out.println("Please enter only numbers!");
+        scan.next();
+        loop2 = true;
+        continue;
+      } 
       if (temp < cogMaxValue) {
         cogValues[1] = temp;
         loop2 = false;
       } else {
-        System.out.println("That number is too large! please enter a number less than "
-            + cogMaxValue);
+        System.out
+            .println("That number is too large! please enter a number less than " + cogMaxValue);
         loop2 = true;
       }
     }
     while (loop3) {
       System.out.println("Please enter the values of the third cog: ");
-      temp = scan.nextInt();
+      try {
+        temp = scan.nextInt();
+      } catch (InputMismatchException e) {
+        System.out.println("Please enter only numbers!");
+        scan.next();
+        loop3 = true;
+        continue;
+      } 
       if (temp < cogMaxValue) {
         cogValues[2] = temp;
         loop3 = false;
       } else {
-        System.out.println("That number is too large! please enter a number less than "
-            + cogMaxValue);
+        System.out
+            .println("That number is too large! please enter a number less than " + cogMaxValue);
         loop3 = true;
       }
     }
