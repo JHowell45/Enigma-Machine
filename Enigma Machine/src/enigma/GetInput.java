@@ -28,6 +28,19 @@ public class GetInput {
     }
     return plainTextArray;
   }
+  
+  public String[] getCipherTextArray(Scanner scanCipherText) {
+    String cipherTextArray[] = null;
+    System.out.println("Please enter some ciphertext: ");
+    String userInput = scanCipherText.nextLine();
+    if (userInput.isEmpty()) {
+      getPlainTextArray(scanCipherText);
+    } else {
+      cipherTextArray = userInput.split(" ");
+      scanCipherText.close();
+    }
+    return cipherTextArray;
+  }
 
   /**
    *  This method is used to check the input is valid.
