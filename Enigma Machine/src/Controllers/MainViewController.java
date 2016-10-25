@@ -37,5 +37,12 @@ public class MainViewController {
     }
   }
   
+  private class DecryptText implements ActionListener {
+    @Override
+    public void actionPerformed(ActionEvent action) {
+      
+    }
+  }
+  
 }
 
