@@ -22,8 +22,10 @@ public class MainView extends JFrame {
   private JTextField cogValue1;
   private JTextField cogValue2;
   private JTextField cogValue3;
-  private JLabel lblNewLabel_2;
-  private JLabel lblenterCipherText;
+  private JLabel plainTextLabel;
+  private JLabel cipherTextLabel;
+  private JButton encryptionButton;
+  private JButton decryptionButton;
 
   /**
    * Launch the application.
@@ -45,11 +47,12 @@ public class MainView extends JFrame {
    * Create the frame.
    */
   public MainView() {
-    setTitle("MainView");
-    setResizable(false);
+    setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     setAlwaysOnTop(true);
-    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    setBounds(50, 50, 900, 600);
+    setTitle("MainView");
+    setSize(1250,700);
+    setResizable(false);
+    setLocationRelativeTo(null);
     contentPane = new JPanel();
     contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
     setContentPane(contentPane);
@@ -57,36 +60,35 @@ public class MainView extends JFrame {
     
     JLabel viewTitle = new JLabel("Enigma Machine");
     viewTitle.setFont(new Font("Lantinghei SC", Font.PLAIN, 24));
-
     viewTitle.setHorizontalAlignment(SwingConstants.CENTER);
-    viewTitle.setBounds(6, 6, 888, 33);
+    viewTitle.setBounds(6, 6, 1238, 33);
     contentPane.add(viewTitle);
     
     encryptionField = new JTextField();
-    encryptionField.setBounds(6, 303, 735, 46);
+    encryptionField.setBounds(6, 303, 1085, 46);
     contentPane.add(encryptionField);
     encryptionField.setColumns(10);
     
-    JButton encryptionButton = new JButton("Encrypt");
+    encryptionButton = new JButton("Encrypt");
     encryptionButton.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
       }
     });
-    encryptionButton.setBounds(753, 308, 141, 39);
+    encryptionButton.setBounds(1103, 308, 141, 39);
     contentPane.add(encryptionButton);
     
     decryptionField = new JTextField();
     decryptionField.setColumns(10);
-    decryptionField.setBounds(6, 446, 735, 46);
+    decryptionField.setBounds(6, 446, 1085, 46);
     contentPane.add(decryptionField);
     
-    JButton decryptionButton = new JButton("Decrypt");
-    decryptionButton.setBounds(753, 451, 141, 39);
+    decryptionButton = new JButton("Decrypt");
+    decryptionButton.setBounds(1103, 451, 141, 39);
     contentPane.add(decryptionButton);
     
     JLabel lblNewLabel = new JLabel("<html>Welcome to my Enigma Machine! You can encrypt text by entering some plain text in the first box and hitting the encrypt button, or decrypt text by entering ciphertext in the second box and hitting the decrypt button!</html>");
     lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-    lblNewLabel.setBounds(6, 86, 888, 46);
+    lblNewLabel.setBounds(6, 86, 1238, 46);
     contentPane.add(lblNewLabel);
     
     JLabel lblNewLabel_1 = new JLabel("<html>Cog start Values (0 - 61): </html>");
@@ -115,14 +117,40 @@ public class MainView extends JFrame {
     cogValue3.setBounds(338, 185, 64, 33);
     contentPane.add(cogValue3);
     
-    lblNewLabel_2 = new JLabel("<html>Enter plain text below!</html>");
-    lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
-    lblNewLabel_2.setBounds(6, 258, 168, 33);
-    contentPane.add(lblNewLabel_2);
+    plainTextLabel = new JLabel("<html>Enter plain text below!</html>");
+    plainTextLabel.setHorizontalAlignment(SwingConstants.CENTER);
+    plainTextLabel.setBounds(6, 258, 168, 33);
+    contentPane.add(plainTextLabel);
     
-    lblenterCipherText = new JLabel("<html>Enter cipher text below!</html>");
-    lblenterCipherText.setHorizontalAlignment(SwingConstants.CENTER);
-    lblenterCipherText.setBounds(6, 401, 168, 33);
-    contentPane.add(lblenterCipherText);
+    cipherTextLabel = new JLabel("<html>Enter cipher text below!</html>");
+    cipherTextLabel.setHorizontalAlignment(SwingConstants.CENTER);
+    cipherTextLabel.setBounds(6, 401, 168, 33);
+    contentPane.add(cipherTextLabel);
   }
+  
+  public void setEncryptTextListener(ActionListener arg0) {
+    encryptionButton.addActionListener(arg0);
+  }
+  
+  public void setDecryptTextListener(ActionListener arg0) {
+    decryptionButton.addActionListener(arg0);
+  }
+  
+  public void setCogValue(String cogStartValue1, String cogStartValue2, String cogStartValue3) {
+    cogValue1.setText(cogStartValue1);
+    cogValue2.setText(cogStartValue2);
+    cogValue3.setText(cogStartValue1);
+  }
+  
+  public String getPlainText() {
+    return encryptionField.getText();
+  }
+  
+  public String getCipherText() {
+    return decryptionField.getText();
+  }
+  
+  
+  
+  
 }
