@@ -1,6 +1,6 @@
 /**
- * This class is used for getting the cogs encryption key and encrypt and decrypt the plaintext and
- * ciphertext respectively.
+ * This class is used for getting the cogs encryption key and encrypt and decrypt the plain text and
+ * cipher text respectively.
  * 
  * @author Jacob Howell
  */

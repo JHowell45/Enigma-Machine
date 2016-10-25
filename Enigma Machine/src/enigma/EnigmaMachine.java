@@ -11,9 +11,9 @@ public class EnigmaMachine {
   /**
    * This method is used to rotate the cogs after encrypting a character.
    * 
-   * @param sCog represents the small cog in the enigma machine.
-   * @param mCog represents the medium cog in the enigma machine.
-   * @param lCog represents the large cog in the enigma machine.
+   * @param sCog represents the small cog in the Enigma machine.
+   * @param mCog represents the medium cog in the Enigma machine.
+   * @param lCog represents the large cog in the Enigma machine.
    */
   public static void cogRotate(Cog sCog, Cog mCog, Cog lCog) {
     if (sCog.getCurrentValue() < sCog.getNumberOfValues()) {

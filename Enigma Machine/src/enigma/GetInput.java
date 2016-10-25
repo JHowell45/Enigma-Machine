@@ -12,8 +12,9 @@ import java.util.Scanner;
 public class GetInput {
 
   /**
-   * This method is used for getting sentences from the user.
+   * This method is used for getting plain text from the user.
    * 
+   * @param scanPlainText is the scanner used to get the plain text from the user.
    * @return the plain text array to be used.
    */
   public String[] getPlainTextArray(Scanner scanPlainText) {
@@ -28,7 +29,13 @@ public class GetInput {
     }
     return plainTextArray;
   }
-  
+
+  /**
+   * This method is used for getting cipher text from the user.
+   * 
+   * @param scanCipherText is the scanner used to get the cipher text from the user.
+   * @return hte cipher text array to be used.
+   */
   public String[] getCipherTextArray(Scanner scanCipherText) {
     String cipherTextArray[] = null;
     System.out.println("Please enter some ciphertext: ");
@@ -43,7 +50,8 @@ public class GetInput {
   }
 
   /**
-   *  This method is used to check the input is valid.
+   * This method is used to check the input is valid.
+   * 
    * @param maxVal is the max value a cog can be.
    * @param loop is the variable for looping if there is an error by the user.
    * @param tempVal will hold the returned value to the getCogStartVals() function.
@@ -88,7 +96,7 @@ public class GetInput {
     cogValues[0] = startValueCheck(cogMaxValue, loop1, temp, scan);
     cogValues[1] = startValueCheck(cogMaxValue, loop2, temp, scan);
     cogValues[2] = startValueCheck(cogMaxValue, loop3, temp, scan);
-    
+
     return cogValues;
   }
 

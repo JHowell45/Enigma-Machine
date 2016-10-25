@@ -1,3 +1,10 @@
+/**
+ * This class is used for creating the UI and displaying information. It is also used for computing
+ * certain functions and performing encryption and decryption.
+ * 
+ * @author Jacob Howell
+ */
+
 package UserInterface;
 
 import java.awt.BorderLayout;
@@ -131,7 +138,7 @@ public class MainView extends JFrame {
         String[] cipherTextArray =
             encrypt.encryptPlainTextArray(plainText, libValues, sCog, mCog, lCog);
         String cipherText = "";
-        for(String s : cipherTextArray) {
+        for (String s : cipherTextArray) {
           cipherText += s;
           cipherText += " ";
         }
@@ -163,7 +170,7 @@ public class MainView extends JFrame {
         String[] plainTextArray =
             encrypt.decryptionPlainTextArray(cipherText, libValues, sCog, mCog, lCog);
         String plainText = "";
-        for(String s : plainTextArray) {
+        for (String s : plainTextArray) {
           plainText += s;
           plainText += " ";
         }
@@ -185,24 +192,29 @@ public class MainView extends JFrame {
   }
 
   /**
+   * This method is used for creating the listener for performing the encryption when the button is
+   * pressed.
    * 
-   * @param arg0
+   * @param arg0 is a variable created for the ActionListener.
    */
   public void setEncryptTextListener(ActionListener arg0) {
     encryptionButton.addActionListener(arg0);
   }
 
   /**
+   * This method is used for creating the listener for performing the decryption when the button is
+   * pressed.
    * 
-   * @param arg0
+   * @param arg0 is a variable created for the ActionListener.
    */
   public void setDecryptTextListener(ActionListener arg0) {
     decryptionButton.addActionListener(arg0);
   }
 
   /**
+   * This method allows for the text in the plain text to be set using this method.
    * 
-   * @param plainT
+   * @param plainT is the string to be entered into the box.
    */
   public void setPlainText(String plainT) {
     encryptionField.setText(plainT);
@@ -236,14 +248,29 @@ public class MainView extends JFrame {
     return decryptionField.getText();
   }
 
+  /**
+   * This is used for getting the first cog start value selected by the user.
+   * 
+   * @return the number the user selected.
+   */
   public int getCogValue1() {
     return cogValue1.getSelectedIndex();
   }
 
+  /**
+   * This is used for getting the second cog start value selected by the user.
+   * 
+   * @return the number the user selected.
+   */
   public int getCogValue2() {
     return cogValue2.getSelectedIndex();
   }
 
+  /**
+   * This is used for getting the third cog start value selected by the user.
+   * 
+   * @return the number the user selected.
+   */
   public int getCogValue3() {
     return cogValue3.getSelectedIndex();
   }

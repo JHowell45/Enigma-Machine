@@ -1,3 +1,10 @@
+/**
+ * This class is used to convert the characters in the cog library to their respective index in the
+ * array and change it back which is important for the encryption and decryption.
+ * 
+ * @author Jacob Howell
+ */
+
 package enigma;
 
 public class Conversion {

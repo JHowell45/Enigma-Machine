@@ -1,3 +1,9 @@
+/**
+ * This class is used for setting up the values for each cog.
+ * 
+ * @author Jacob Howell
+ */
+
 package enigma;
 
 public class Library {
@@ -11,7 +17,7 @@ public class Library {
    */
   public char[] potentialValues(int userChoice) {
     char valuesArray[] = new char[62];
-      valuesArray = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".toCharArray();
+    valuesArray = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".toCharArray();
 
     return valuesArray;
   }
