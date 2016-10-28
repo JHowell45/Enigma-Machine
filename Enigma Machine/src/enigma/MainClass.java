@@ -64,9 +64,9 @@ public class MainClass {
    */
   public static void main(String args[]) {
     System.out.println("|------------------------- Enigma Machine -------------------------|");
-    int numberOfValues = 62;
-    valuesLibrary = new char[numberOfValues];
-    valuesLibrary = lib.potentialValues(numberOfValues);
+    int numberOfValues;
+    valuesLibrary = lib.potentialValues();
+    numberOfValues = valuesLibrary.length;
 
     // Get cog start values
     cogStartValues = gInput.getCogStartVals(numberOfValues, scanCogStartValue);

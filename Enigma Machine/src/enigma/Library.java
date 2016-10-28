@@ -15,11 +15,16 @@ public class Library {
    * @param userChoice is the cchoice the user has made, e.g. lowercase, lower and upper, and lower,
    *        upper and numbers.
    */
-  public char[] potentialValues(int userChoice) {
+  public char[] potentialValues() {
     char valuesArray[] = new char[62];
     valuesArray = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".toCharArray();
 
     return valuesArray;
   }
 
+  public int getLibraryLength() {
+    char[] tempArray;
+    tempArray = potentialValues();
+    return tempArray.length;
+  }
 }

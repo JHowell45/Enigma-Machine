@@ -104,25 +104,28 @@ public class MainView extends JFrame {
 
     cogValue1 = new JComboBox<Integer>();
     cogValue1.setModel(new DefaultComboBoxModel<Integer>(
-        new Integer[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-            22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43,
-            44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61}));
+        new Integer[] {}));
+    for(int x = 0; x < lib.getLibraryLength(); x++) {
+      cogValue1.addItem(x);
+    }
     cogValue1.setBounds(186, 179, 72, 46);
     contentPane.add(cogValue1);
 
     cogValue2 = new JComboBox<Integer>();
     cogValue2.setModel(new DefaultComboBoxModel<Integer>(
-        new Integer[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-            22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43,
-            44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61}));
+        new Integer[] {}));
+    for(int x = 0; x < lib.getLibraryLength(); x++) {
+      cogValue2.addItem(x);
+    }
     cogValue2.setBounds(270, 179, 72, 46);
     contentPane.add(cogValue2);
 
     cogValue3 = new JComboBox<Integer>();
     cogValue3.setModel(new DefaultComboBoxModel<Integer>(
-        new Integer[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-            22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43,
-            44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61}));
+        new Integer[] {}));
+    for(int x = 0; x < lib.getLibraryLength(); x++) {
+      cogValue3.addItem(x);
+    }
     cogValue3.setBounds(354, 179, 72, 46);
     contentPane.add(cogValue3);
 
@@ -132,7 +135,7 @@ public class MainView extends JFrame {
         Cog sCog = new Cog(62, getCogValue1(), "small");
         Cog mCog = new Cog(62, getCogValue2(), "medium");
         Cog lCog = new Cog(62, getCogValue3(), "large");
-        char[] libValues = lib.potentialValues(62);
+        char[] libValues = lib.potentialValues();
         String[] plainText = getPlainText().split(" ");
 
         String[] cipherTextArray =
@@ -164,7 +167,7 @@ public class MainView extends JFrame {
         Cog sCog = new Cog(62, getCogValue1(), "small");
         Cog mCog = new Cog(62, getCogValue2(), "medium");
         Cog lCog = new Cog(62, getCogValue3(), "large");
-        char[] libValues = lib.potentialValues(62);
+        char[] libValues = lib.potentialValues();
         String[] cipherText = getCipherText().split(" ");
 
         String[] plainTextArray =
