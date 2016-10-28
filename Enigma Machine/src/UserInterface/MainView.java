@@ -129,9 +129,9 @@ public class MainView extends JFrame {
     encryptionButton = new JButton("Encrypt");
     encryptionButton.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent event) {
-        Cog sCog = new Cog(62, getCogValue1(), "small");
-        Cog mCog = new Cog(62, getCogValue2(), "medium");
-        Cog lCog = new Cog(62, getCogValue3(), "large");
+        Cog sCog = new Cog(lib.getLibraryLength(), getCogValue1(), "small");
+        Cog mCog = new Cog(lib.getLibraryLength(), getCogValue2(), "medium");
+        Cog lCog = new Cog(lib.getLibraryLength(), getCogValue3(), "large");
         char[] libValues = lib.potentialValues();
         String[] plainText = getPlainText().split(" ");
 
@@ -161,9 +161,9 @@ public class MainView extends JFrame {
     decryptionButton = new JButton("Decrypt");
     decryptionButton.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent event) {
-        Cog sCog = new Cog(62, getCogValue1(), "small");
-        Cog mCog = new Cog(62, getCogValue2(), "medium");
-        Cog lCog = new Cog(62, getCogValue3(), "large");
+        Cog sCog = new Cog(lib.getLibraryLength(), getCogValue1(), "small");
+        Cog mCog = new Cog(lib.getLibraryLength(), getCogValue2(), "medium");
+        Cog lCog = new Cog(lib.getLibraryLength(), getCogValue3(), "large");
         char[] libValues = lib.potentialValues();
         String[] cipherText = getCipherText().split(" ");
 
