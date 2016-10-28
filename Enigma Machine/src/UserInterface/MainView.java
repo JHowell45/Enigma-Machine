@@ -103,27 +103,24 @@ public class MainView extends JFrame {
     contentPane.add(cogStartValuesLabel);
 
     cogValue1 = new JComboBox<Integer>();
-    cogValue1.setModel(new DefaultComboBoxModel<Integer>(
-        new Integer[] {}));
-    for(int x = 0; x < lib.getLibraryLength(); x++) {
+    cogValue1.setModel(new DefaultComboBoxModel<Integer>(new Integer[] {}));
+    for (int x = 0; x < lib.getLibraryLength(); x++) {
       cogValue1.addItem(x);
     }
     cogValue1.setBounds(186, 179, 72, 46);
     contentPane.add(cogValue1);
 
     cogValue2 = new JComboBox<Integer>();
-    cogValue2.setModel(new DefaultComboBoxModel<Integer>(
-        new Integer[] {}));
-    for(int x = 0; x < lib.getLibraryLength(); x++) {
+    cogValue2.setModel(new DefaultComboBoxModel<Integer>(new Integer[] {}));
+    for (int x = 0; x < lib.getLibraryLength(); x++) {
       cogValue2.addItem(x);
     }
     cogValue2.setBounds(270, 179, 72, 46);
     contentPane.add(cogValue2);
 
     cogValue3 = new JComboBox<Integer>();
-    cogValue3.setModel(new DefaultComboBoxModel<Integer>(
-        new Integer[] {}));
-    for(int x = 0; x < lib.getLibraryLength(); x++) {
+    cogValue3.setModel(new DefaultComboBoxModel<Integer>(new Integer[] {}));
+    for (int x = 0; x < lib.getLibraryLength(); x++) {
       cogValue3.addItem(x);
     }
     cogValue3.setBounds(354, 179, 72, 46);

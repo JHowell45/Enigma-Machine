@@ -21,7 +21,11 @@ public class Library {
 
     return valuesArray;
   }
-
+  
+  /**
+   * This method is used for returning the length of the library.
+   * @return the length of the array containing the values for the cog.
+   */
   public int getLibraryLength() {
     char[] tempArray;
     tempArray = potentialValues();
