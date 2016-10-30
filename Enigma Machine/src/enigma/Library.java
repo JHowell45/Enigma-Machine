@@ -17,8 +17,7 @@ public class Library {
    */
   public char[] potentialValues() {
     char valuesArray[] = new char[62];
-    valuesArray = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@?.,".toCharArray();
-
+    valuesArray = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@?.,#<>\"'".toCharArray();
     return valuesArray;
   }
 

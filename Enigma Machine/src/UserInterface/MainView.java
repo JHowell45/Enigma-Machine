@@ -40,6 +40,13 @@ public class MainView extends JFrame {
    * @param cipherTextLabel shows where the cipher text text field is.
    * @param encryptionButton is used for encrypting the plain text in the encryptionField.
    * @param decryptionButton is used for decrypting the cipher text in the decryptionField.
+   * @param cogValue1 is used to store the starting value of the first cog.
+   * @param cogValue2 is used to store the starting value of the second cog.
+   * @param cogValue3 is used to store the starting value of the third cog.
+   * @param noOfRounds is used to store the number of rounds of encrpytion or decryption to be
+   *        applied to the respective text.
+   * @param lib is used to give this class access to the methods within the Library class.
+   * @param encrypt is used to give this class access to the methods within the Encryption class.
    */
   private JPanel contentPane;
   private JTextField encryptionField;
@@ -51,6 +58,7 @@ public class MainView extends JFrame {
   private JComboBox<Integer> cogValue1;
   private JComboBox<Integer> cogValue2;
   private JComboBox<Integer> cogValue3;
+  private JComboBox<Integer> noOfRounds;
   private Library lib = new Library();
   private Encryption encrypt = new Encryption();
 
@@ -189,6 +197,21 @@ public class MainView extends JFrame {
     cipherTextLabel.setHorizontalAlignment(SwingConstants.CENTER);
     cipherTextLabel.setBounds(6, 401, 168, 33);
     contentPane.add(cipherTextLabel);
+
+    JLabel roundsLabel = new JLabel("Number of Rounds: ");
+    roundsLabel.setHorizontalAlignment(SwingConstants.CENTER);
+    roundsLabel.setToolTipText(
+        "This is for selecting the number of rounds of encryption or decryption to be applied to the plaintext or ciphertext respectively");
+    roundsLabel.setBounds(823, 186, 168, 33);
+    contentPane.add(roundsLabel);
+
+    noOfRounds = new JComboBox<Integer>();
+    noOfRounds.setModel(new DefaultComboBoxModel<Integer>(new Integer[] {}));
+    for (int x = 1; x < 1000; x++) {
+      noOfRounds.addItem(x);
+    }
+    noOfRounds.setBounds(979, 179, 72, 46);
+    contentPane.add(noOfRounds);
   }
 
   /**
@@ -273,5 +296,15 @@ public class MainView extends JFrame {
    */
   public int getCogValue3() {
     return cogValue3.getSelectedIndex();
+  }
+
+  /**
+   * This method is used for returning the total number of rounds to be applied to plaintext or
+   * ciphertext.
+   * 
+   * @return the number of rounds
+   */
+  public int getRoundValue() {
+    return noOfRounds.getItemCount();
   }
 }
