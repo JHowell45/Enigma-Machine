@@ -1,3 +1,9 @@
+/**
+ * This class is used for displaying the solver for the Enigma Machine.
+ * 
+ * @author Jacob Howell
+ */
+
 package UserInterface;
 
 import java.awt.BorderLayout;
@@ -45,7 +51,7 @@ public class MainView extends JFrame {
     contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
     setContentPane(contentPane);
     contentPane.setLayout(null);
-    
+
     JLabel enigmaSolverTitle = new JLabel("Enigma Solver");
     enigmaSolverTitle.setFont(new Font("Lantinghei SC", Font.PLAIN, 24));
     enigmaSolverTitle.setHorizontalAlignment(SwingConstants.CENTER);
