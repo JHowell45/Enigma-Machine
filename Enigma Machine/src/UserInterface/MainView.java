@@ -59,6 +59,8 @@ public class MainView extends JFrame {
   private JComboBox<Integer> cogValue2;
   private JComboBox<Integer> cogValue3;
   private JComboBox<Integer> noOfRounds;
+  public String plainTextTemp;
+  public String cipherTextTemp;
   private Library lib = new Library();
   private Encryption encrypt = new Encryption();
 
@@ -137,20 +139,27 @@ public class MainView extends JFrame {
     encryptionButton = new JButton("Encrypt");
     encryptionButton.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent event) {
-        Cog sCog = new Cog(lib.getLibraryLength(), getCogValue1(), "small");
-        Cog mCog = new Cog(lib.getLibraryLength(), getCogValue2(), "medium");
-        Cog lCog = new Cog(lib.getLibraryLength(), getCogValue3(), "large");
-        char[] libValues = lib.potentialValues();
-        String[] plainText = getPlainText().split(" ");
+        plainTextTemp = getPlainText();
+        for(int i = 0; i < getRoundValue(); i++) {
+          if(i == 1 && getRoundValue() > 1) {
+            setPlainText(getCipherText());
+          }
+          Cog sCog = new Cog(lib.getLibraryLength(), getCogValue1(), "small");
+          Cog mCog = new Cog(lib.getLibraryLength(), getCogValue2(), "medium");
+          Cog lCog = new Cog(lib.getLibraryLength(), getCogValue3(), "large");
+          char[] libValues = lib.potentialValues();
+          String[] plainText = getPlainText().split(" ");
 
-        String[] cipherTextArray =
-            encrypt.encryptPlainTextArray(plainText, libValues, sCog, mCog, lCog);
-        String cipherText = "";
-        for (String s : cipherTextArray) {
-          cipherText += s;
-          cipherText += " ";
+          String[] cipherTextArray =
+              encrypt.encryptPlainTextArray(plainText, libValues, sCog, mCog, lCog);
+          String cipherText = "";
+          for (String s : cipherTextArray) {
+            cipherText += s;
+            cipherText += " ";
+          }
+          setCipherText(cipherText);
         }
-        setCipherText(cipherText);
+        setPlainText(plainTextTemp);
       }
     });
 
@@ -169,20 +178,27 @@ public class MainView extends JFrame {
     decryptionButton = new JButton("Decrypt");
     decryptionButton.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent event) {
-        Cog sCog = new Cog(lib.getLibraryLength(), getCogValue1(), "small");
-        Cog mCog = new Cog(lib.getLibraryLength(), getCogValue2(), "medium");
-        Cog lCog = new Cog(lib.getLibraryLength(), getCogValue3(), "large");
-        char[] libValues = lib.potentialValues();
-        String[] cipherText = getCipherText().split(" ");
+        cipherTextTemp = getCipherText();
+        for(int i = 0; i < getRoundValue(); i++) {
+          if(i == 1 && getRoundValue() > 1) {
+            setCipherText(getPlainText());
+          }
+          Cog sCog = new Cog(lib.getLibraryLength(), getCogValue1(), "small");
+          Cog mCog = new Cog(lib.getLibraryLength(), getCogValue2(), "medium");
+          Cog lCog = new Cog(lib.getLibraryLength(), getCogValue3(), "large");
+          char[] libValues = lib.potentialValues();
+          String[] cipherText = getCipherText().split(" ");
 
-        String[] plainTextArray =
-            encrypt.decryptionPlainTextArray(cipherText, libValues, sCog, mCog, lCog);
-        String plainText = "";
-        for (String s : plainTextArray) {
-          plainText += s;
-          plainText += " ";
+          String[] plainTextArray =
+              encrypt.decryptionPlainTextArray(cipherText, libValues, sCog, mCog, lCog);
+          String plainText = "";
+          for (String s : plainTextArray) {
+            plainText += s;
+            plainText += " ";
+          }
+          setPlainText(plainText);
         }
-        setPlainText(plainText);
+        setCipherText(cipherTextTemp);
       }
     });
     decryptionButton.setBounds(1103, 451, 141, 39);
@@ -210,7 +226,7 @@ public class MainView extends JFrame {
     for (int x = 1; x < 1000; x++) {
       noOfRounds.addItem(x);
     }
-    noOfRounds.setBounds(979, 179, 72, 46);
+    noOfRounds.setBounds(979, 179, 112, 46);
     contentPane.add(noOfRounds);
   }
 
