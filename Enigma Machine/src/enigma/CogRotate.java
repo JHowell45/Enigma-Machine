@@ -1,12 +1,12 @@
 /**
- * This class is used for building the enigma machine to be used in the main class.
+ * This class is used for rotating the cogs to be used in the main class.
  * 
  * @author Jacob Howell
  */
 
 package enigma;
 
-public class EnigmaMachine {
+public class CogRotate {
 
   /**
    * This method is used to rotate the cogs after encrypting a character.

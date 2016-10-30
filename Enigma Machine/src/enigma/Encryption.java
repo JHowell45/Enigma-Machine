@@ -66,7 +66,7 @@ public class Encryption {
           }
         }
         tempCipherCharArray[letter] = convert.convertToLetter(valuesArray, letterValue);
-        EnigmaMachine.cogRotate(c1, c2, c3);
+        CogRotate.cogRotate(c1, c2, c3);
       }
       cipherT = new String(tempCipherCharArray);
       cipherTextArray[counter] = cipherT;
@@ -105,7 +105,7 @@ public class Encryption {
         }
         tempPlainArray[encryptedLetter] =
             convert.convertToLetter(valuesArray, encryptedLetterValue);
-        EnigmaMachine.cogRotate(c1, c2, c3);
+        CogRotate.cogRotate(c1, c2, c3);
       }
       plainT = new String(tempPlainArray);
       plainTextArray[counter] = plainT;

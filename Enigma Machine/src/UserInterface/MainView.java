@@ -86,7 +86,7 @@ public class MainView extends JFrame {
   public MainView() {
     setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     setAlwaysOnTop(true);
-    setTitle("MainView");
+    setTitle("EnigmaMachine");
     setSize(1250, 700);
     setResizable(false);
     setLocationRelativeTo(null);
