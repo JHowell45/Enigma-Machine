@@ -16,18 +16,18 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 
-public class MainViewEnigmaSolver extends JFrame {
+public class EnigmaSolverView extends JFrame {
 
   private JPanel contentPane;
 
   /**
    * Launch the application.
    */
-  public static void main(String[] args) {
+  public static void openWindow() {
     EventQueue.invokeLater(new Runnable() {
       public void run() {
         try {
-          MainViewEnigmaSolver frame = new MainViewEnigmaSolver();
+          EnigmaSolverView frame = new EnigmaSolverView();
           frame.setVisible(true);
         } catch (Exception e) {
           e.printStackTrace();
@@ -39,7 +39,7 @@ public class MainViewEnigmaSolver extends JFrame {
   /**
    * Create the frame.
    */
-  public MainViewEnigmaSolver() {
+  public EnigmaSolverView() {
     setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     setAlwaysOnTop(true);
     setTitle("EnigmaSolver");

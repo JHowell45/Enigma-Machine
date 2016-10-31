@@ -28,7 +28,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 
-public class MainViewEnigmaMachine extends JFrame {
+public class EnigmaMachineView extends JFrame {
 
   /**
    * Variables used for the main view class.
@@ -67,11 +67,11 @@ public class MainViewEnigmaMachine extends JFrame {
   /**
    * Launch the application.
    */
-  public static void main(String[] args) {
+  public static void openWindow() {
     EventQueue.invokeLater(new Runnable() {
       public void run() {
         try {
-          MainViewEnigmaMachine frame = new MainViewEnigmaMachine();
+          EnigmaMachineView frame = new EnigmaMachineView();
           frame.setVisible(true);
         } catch (Exception e) {
           e.printStackTrace();
@@ -83,7 +83,7 @@ public class MainViewEnigmaMachine extends JFrame {
   /**
    * Create the frame.
    */
-  public MainViewEnigmaMachine() {
+  public EnigmaMachineView() {
     setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     setAlwaysOnTop(true);
     setTitle("EnigmaMachine");
@@ -139,15 +139,15 @@ public class MainViewEnigmaMachine extends JFrame {
     encryptionButton = new JButton("Encrypt");
     encryptionButton.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent event) {
+        char[] libValues = lib.potentialValues();
         plainTextTemp = getPlainText();
         for(int i = 0; i < getRoundValue(); i++) {
-          if(i == 1 && getRoundValue() > 1) {
+          if(i > 0 && getRoundValue() > 2) {
             setPlainText(getCipherText());
           }
           Cog sCog = new Cog(lib.getLibraryLength(), getCogValue1(), "small");
           Cog mCog = new Cog(lib.getLibraryLength(), getCogValue2(), "medium");
           Cog lCog = new Cog(lib.getLibraryLength(), getCogValue3(), "large");
-          char[] libValues = lib.potentialValues();
           String[] plainText = getPlainText().split(" ");
 
           String[] cipherTextArray =
@@ -180,7 +180,7 @@ public class MainViewEnigmaMachine extends JFrame {
       public void actionPerformed(ActionEvent event) {
         cipherTextTemp = getCipherText();
         for(int i = 0; i < getRoundValue(); i++) {
-          if(i == 1 && getRoundValue() > 1) {
+          if(i > 0 && getRoundValue() > 1) {
             setCipherText(getPlainText());
           }
           Cog sCog = new Cog(lib.getLibraryLength(), getCogValue1(), "small");
