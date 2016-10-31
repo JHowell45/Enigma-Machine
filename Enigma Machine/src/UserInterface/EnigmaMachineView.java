@@ -321,6 +321,6 @@ public class EnigmaMachineView extends JFrame {
    * @return the number of rounds
    */
   public int getRoundValue() {
-    return noOfRounds.getItemCount();
+    return noOfRounds.getSelectedIndex();
   }
 }
