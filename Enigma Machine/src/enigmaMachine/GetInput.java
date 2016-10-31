@@ -4,7 +4,7 @@
  * @author Jacob howell
  */
 
-package enigma;
+package enigmaMachine;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

@@ -5,7 +5,7 @@
  * @author Jacob Howell
  */
 
-package enigma;
+package enigmaMachine;
 
 public class Encryption {
 

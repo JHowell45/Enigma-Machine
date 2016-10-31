@@ -15,9 +15,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import enigma.Cog;
-import enigma.Encryption;
-import enigma.Library;
+import enigmaMachine.Cog;
+import enigmaMachine.Encryption;
+import enigmaMachine.Library;
 
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -28,7 +28,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 
-public class MainView extends JFrame {
+public class MainViewEnigmaMachine extends JFrame {
 
   /**
    * Variables used for the main view class.
@@ -71,7 +71,7 @@ public class MainView extends JFrame {
     EventQueue.invokeLater(new Runnable() {
       public void run() {
         try {
-          MainView frame = new MainView();
+          MainViewEnigmaMachine frame = new MainViewEnigmaMachine();
           frame.setVisible(true);
         } catch (Exception e) {
           e.printStackTrace();
@@ -83,7 +83,7 @@ public class MainView extends JFrame {
   /**
    * Create the frame.
    */
-  public MainView() {
+  public MainViewEnigmaMachine() {
     setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     setAlwaysOnTop(true);
     setTitle("EnigmaMachine");
