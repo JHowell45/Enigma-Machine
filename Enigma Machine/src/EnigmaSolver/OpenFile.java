@@ -23,8 +23,9 @@ public class OpenFile {
    * @return
    * @throws IOException
    */
-  public String[] openAndReadFile(String filePath) throws IOException {
+  public String[] openAndReadFile(String filename) throws IOException {
     int counter = 0;
+    String filePath = "resources/" + filename;
     dictionaryArrays = null;
     try {
       BufferedReader bReader = new BufferedReader(new FileReader(filePath));
