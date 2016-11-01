@@ -34,6 +34,7 @@ public class EnigmaMachineView extends JFrame {
    * Variables used for the main view class.
    * 
    * @param contentPane holds all of the information displayed in the pane.
+   * @param viewTitle is the title for the view frame.
    * @param encryptionField is used to store the plain text for encryption.
    * @param decryptionField is used to store the cipher text for decryption.
    * @param plainTextLabel shows where the plain text text field is.
@@ -49,6 +50,7 @@ public class EnigmaMachineView extends JFrame {
    * @param encrypt is used to give this class access to the methods within the Encryption class.
    */
   private JPanel contentPane;
+  private JLabel viewTitle;
   private JTextField encryptionField;
   private JTextField decryptionField;
   private JLabel plainTextLabel;
@@ -95,7 +97,7 @@ public class EnigmaMachineView extends JFrame {
     setContentPane(contentPane);
     contentPane.setLayout(null);
 
-    JLabel viewTitle = new JLabel("Enigma Machine");
+    viewTitle = new JLabel("Enigma Machine");
     viewTitle.setFont(new Font("Lantinghei SC", Font.PLAIN, 24));
     viewTitle.setHorizontalAlignment(SwingConstants.CENTER);
     viewTitle.setBounds(6, 6, 1238, 33);

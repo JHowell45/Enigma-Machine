@@ -51,7 +51,8 @@ public class EnigmaSolverView extends JFrame {
    *        plain text will be shown.
    * @param resultsLabel label showing where the results of the decipher will be shown.
    * @param gEncrypt is used for accessing the decipher method in the GuessEncryption class.
-   * @param valuesArray is used for storing the values of the GuessEncrpytion method that will be used to decipher the cipher text.
+   * @param valuesArray is used for storing the values of the GuessEncrpytion method that will be
+   *        used to decipher the cipher text.
    */
   private JPanel contentPane;
   private JLabel enigmaSolverTitle;
@@ -124,11 +125,16 @@ public class EnigmaSolverView extends JFrame {
     decipherBtn = new JButton("Decipher");
     decipherBtn.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent event) {
-        valuesArray = gEncrypt.returnValues(getCipherText());
-        setPlainText(valuesArray[0]);
-        setCogValue(valuesArray[1], cog1Field);
-        setCogValue(valuesArray[2], cog2Field);
-        setCogValue(valuesArray[3], cog3Field);
+        // valuesArray = gEncrypt.returnValues(getCipherText());
+        valuesArray[0] = "Hello World";
+        valuesArray[1] = "2";
+        valuesArray[2] = "45";
+        valuesArray[3] = "63";
+        // setPlainText(valuesArray[0]);
+        setPlainText("Hello world");
+        // setCogValue(valuesArray[1], cog1Field);
+        // setCogValue(valuesArray[2], cog2Field);
+        // setCogValue(valuesArray[3], cog3Field);
       }
     });
     decipherBtn.setToolTipText(
@@ -209,6 +215,14 @@ public class EnigmaSolverView extends JFrame {
   }
 
   /**
+   * 
+   * @param arg0
+   */
+  public void setDecipherListener(ActionListener arg0) {
+    decipherBtn.addActionListener(arg0);
+  }
+
+  /**
    * This method is for setting the value of plaintextField.
    */
   public void setPlainText(String plainT) {
@@ -242,19 +256,20 @@ public class EnigmaSolverView extends JFrame {
   }
 
   /**
+   * This method is used to return the start values of the cogs.
    * 
-   * @param value
-   * @param cogField
-   * @return
+   * @param value the value to be returned.
+   * @param cogField the cog to return the value to.
+   * @return the cog value.
    */
   public void setCogValue(String value, JTextField cogField) {
     cogField.setText(value);
   }
 
   /**
-   * 
-   * @param cogField
-   * @return
+   * This method is used to retrieve the cog start value from a specified cog.
+   * @param cogField the cog value to retrieve.
+   * @return the cog start value.
    */
   public String getCogValue(JTextField cogField) {
     return cogField.getText();
