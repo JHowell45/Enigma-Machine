@@ -141,7 +141,7 @@ public class EnigmaMachineView extends JFrame {
       public void actionPerformed(ActionEvent event) {
         char[] libValues = lib.potentialValues();
         plainTextTemp = getPlainText();
-        for(int i = 0; i < getRoundValue(); i++) {
+        for(int i = 0; i <= getRoundValue(); i++) {
           if(i > 0) {
             setPlainText(getCipherText());
           }
@@ -179,7 +179,7 @@ public class EnigmaMachineView extends JFrame {
     decryptionButton.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent event) {
         cipherTextTemp = getCipherText();
-        for(int i = 0; i < getRoundValue(); i++) {
+        for(int i = 0; i <= getRoundValue(); i++) {
           if(i > 0) {
             setCipherText(getPlainText());
           }
