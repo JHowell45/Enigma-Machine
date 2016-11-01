@@ -145,9 +145,9 @@ public class EnigmaMachineView extends JFrame {
           if(i > 0 && getRoundValue() > 2) {
             setPlainText(getCipherText());
           }
-          Cog sCog = new Cog(lib.getLibraryLength(), getCogValue1(), "small");
-          Cog mCog = new Cog(lib.getLibraryLength(), getCogValue2(), "medium");
-          Cog lCog = new Cog(lib.getLibraryLength(), getCogValue3(), "large");
+          Cog sCog = new Cog(lib.getLibraryLength(), getCogValue1());
+          Cog mCog = new Cog(lib.getLibraryLength(), getCogValue2());
+          Cog lCog = new Cog(lib.getLibraryLength(), getCogValue3());
           String[] plainText = getPlainText().split(" ");
 
           String[] cipherTextArray =
@@ -183,9 +183,9 @@ public class EnigmaMachineView extends JFrame {
           if(i > 0 && getRoundValue() > 1) {
             setCipherText(getPlainText());
           }
-          Cog sCog = new Cog(lib.getLibraryLength(), getCogValue1(), "small");
-          Cog mCog = new Cog(lib.getLibraryLength(), getCogValue2(), "medium");
-          Cog lCog = new Cog(lib.getLibraryLength(), getCogValue3(), "large");
+          Cog sCog = new Cog(lib.getLibraryLength(), getCogValue1());
+          Cog mCog = new Cog(lib.getLibraryLength(), getCogValue2());
+          Cog lCog = new Cog(lib.getLibraryLength(), getCogValue3());
           char[] libValues = lib.potentialValues();
           String[] cipherText = getCipherText().split(" ");
 
