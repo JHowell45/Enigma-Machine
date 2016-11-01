@@ -142,12 +142,12 @@ public class EnigmaMachineView extends JFrame {
         char[] libValues = lib.potentialValues();
         plainTextTemp = getPlainText();
         for(int i = 0; i < getRoundValue(); i++) {
-          if(i > 0 && getRoundValue() > 2) {
+          if(i > 0) {
             setPlainText(getCipherText());
           }
-          Cog sCog = new Cog(lib.getLibraryLength(), getCogValue1());
-          Cog mCog = new Cog(lib.getLibraryLength(), getCogValue2());
-          Cog lCog = new Cog(lib.getLibraryLength(), getCogValue3());
+          Cog sCog = new Cog(lib.getLibraryLength(), getCogValue(cogValue1));
+          Cog mCog = new Cog(lib.getLibraryLength(), getCogValue(cogValue2));
+          Cog lCog = new Cog(lib.getLibraryLength(), getCogValue(cogValue3));
           String[] plainText = getPlainText().split(" ");
 
           String[] cipherTextArray =
@@ -180,12 +180,12 @@ public class EnigmaMachineView extends JFrame {
       public void actionPerformed(ActionEvent event) {
         cipherTextTemp = getCipherText();
         for(int i = 0; i < getRoundValue(); i++) {
-          if(i > 0 && getRoundValue() > 1) {
+          if(i > 0) {
             setCipherText(getPlainText());
           }
-          Cog sCog = new Cog(lib.getLibraryLength(), getCogValue1());
-          Cog mCog = new Cog(lib.getLibraryLength(), getCogValue2());
-          Cog lCog = new Cog(lib.getLibraryLength(), getCogValue3());
+          Cog sCog = new Cog(lib.getLibraryLength(), getCogValue(cogValue1));
+          Cog mCog = new Cog(lib.getLibraryLength(), getCogValue(cogValue2));
+          Cog lCog = new Cog(lib.getLibraryLength(), getCogValue(cogValue3));
           char[] libValues = lib.potentialValues();
           String[] cipherText = getCipherText().split(" ");
 
@@ -288,30 +288,12 @@ public class EnigmaMachineView extends JFrame {
   }
 
   /**
-   * This is used for getting the first cog start value selected by the user.
+   * This is used for getting the  cog start value for the specified cog selected by the user.
    * 
    * @return the number the user selected.
    */
-  public int getCogValue1() {
-    return cogValue1.getSelectedIndex();
-  }
-
-  /**
-   * This is used for getting the second cog start value selected by the user.
-   * 
-   * @return the number the user selected.
-   */
-  public int getCogValue2() {
-    return cogValue2.getSelectedIndex();
-  }
-
-  /**
-   * This is used for getting the third cog start value selected by the user.
-   * 
-   * @return the number the user selected.
-   */
-  public int getCogValue3() {
-    return cogValue3.getSelectedIndex();
+  public int getCogValue(JComboBox<Integer> cogVal) {
+    return cogVal.getSelectedIndex();
   }
 
   /**

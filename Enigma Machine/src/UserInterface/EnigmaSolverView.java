@@ -12,6 +12,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import EnigmaSolver.GuessEncryption;
+
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
@@ -43,6 +46,7 @@ public class EnigmaSolverView extends JFrame {
    * @param cog3ValueLabel
    * @param roundsLabel
    * @param resultsLabel
+   * @param valuesArray
    */
   private JPanel contentPane;
   private JLabel enigmaSolverTitle;
@@ -62,6 +66,8 @@ public class EnigmaSolverView extends JFrame {
   private JLabel cog3ValueLabel;
   private JLabel roundsLabel;
   private JLabel resultsLabel;
+  private GuessEncryption gEncrypt = new GuessEncryption();
+  public String[] valuesArray;
 
   /**
    * Launch the application.
@@ -112,7 +118,11 @@ public class EnigmaSolverView extends JFrame {
     decipherBtn = new JButton("Decipher");
     decipherBtn.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent event) {
-        
+        valuesArray = gEncrypt.returnValues(getCipherText());
+        setPlainText(valuesArray[0]);
+        setCogValue(valuesArray[1], cog1Field);
+        setCogValue(valuesArray[2], cog2Field);
+        setCogValue(valuesArray[3], cog3Field);
       }
     });
     decipherBtn.setToolTipText("<html>Click this button to discover the secret plaintext as well as the cog start values and the number of rounds being used to encrypt the text!</html>");
@@ -220,4 +230,24 @@ public class EnigmaSolverView extends JFrame {
   public String getCipherText() {
     return cipherTextField.getText();
   }
+  
+  /**
+   * 
+   * @param value
+   * @param cogField
+   * @return
+   */
+  public void setCogValue(String value, JTextField cogField) {
+    cogField.setText(value);
+  }
+  
+  /**
+   * 
+   * @param cogField
+   * @return
+   */
+  public String getCogValue(JTextField cogField) {
+    return cogField.getText();
+  }
+  
 }

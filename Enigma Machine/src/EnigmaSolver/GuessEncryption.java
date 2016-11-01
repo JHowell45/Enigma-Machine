@@ -78,7 +78,7 @@ public class GuessEncryption {
       allCorrect = plainTextArray.length;
       countCorrect = 0;
       try {
-        allWords = oFile.openAndReadFile("Dictionary.txt");
+        allWords = oFile.openAndReadFile("dictionary.txt");
       } catch (IOException e) {
         e.printStackTrace();
       }
