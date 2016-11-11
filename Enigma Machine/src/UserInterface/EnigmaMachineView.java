@@ -225,8 +225,8 @@ public class EnigmaMachineView extends JFrame {
 
     noOfRounds = new JComboBox<Integer>();
     noOfRounds.setModel(new DefaultComboBoxModel<Integer>(new Integer[] {}));
-    for (int x = 1; x < 1000; x++) {
-      noOfRounds.addItem(x);
+    for (int x = 1; x < lib.getLibraryLength(); x++) {
+      noOfRounds.addItem(x);      
     }
     noOfRounds.setBounds(979, 179, 112, 46);
     contentPane.add(noOfRounds);
