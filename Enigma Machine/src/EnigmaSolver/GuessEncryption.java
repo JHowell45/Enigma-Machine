@@ -52,9 +52,10 @@ public class GuessEncryption {
   public Cog lCog;
   public int allCorrect;
   public int countCorrect;
-  public String[] values;
+  public String[] values = new String[5];
   private char[] library;
   private int libLength;
+  private int stillRunning = 0;
   
   private Library lib = new Library();
   private Encryption encrypt = new Encryption();
@@ -73,6 +74,7 @@ public class GuessEncryption {
     cipherTextArray = cipherT.split(" ");
     library = lib.potentialValues();
     libLength = lib.getLibraryLength();
+    allWords = oFile.openAndReadFile("dictionary.txt");
     while(loop) {
       sCog = new Cog(libLength,guessedCogValue1);
       mCog = new Cog(libLength, guessedCogValue2);
@@ -80,9 +82,10 @@ public class GuessEncryption {
       plainTextArray = encrypt.decryptionPlainTextArray(cipherTextArray, library, sCog, mCog, lCog);
       allCorrect = plainTextArray.length;
       countCorrect = 0;
-      allWords = oFile.openAndReadFile("dictionary.txt");
       for(int i = 0; i < plainTextArray.length; i++) {
         for(int j = 0; j < allWords.length; j++) {
+          stillRunning ++;
+          System.out.println("Still Running: " + stillRunning);
           if(plainTextArray[i].equals(allWords[j])) {
             countCorrect++;
           }
@@ -103,6 +106,7 @@ public class GuessEncryption {
     values[1] = Integer.toString(guessedCogValue1);
     values[2] = Integer.toString(guessedCogValue2);
     values[3] = Integer.toString(guessedCogValue3);
+    values[4] = "1";
     return values;
   }
   

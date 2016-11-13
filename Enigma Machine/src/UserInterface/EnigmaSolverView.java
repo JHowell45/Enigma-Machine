@@ -20,6 +20,7 @@ import javax.swing.SwingConstants;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -125,12 +126,11 @@ public class EnigmaSolverView extends JFrame {
     decipherBtn = new JButton("Decipher");
     decipherBtn.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent event) {
-        // valuesArray = gEncrypt.returnValues(getCipherText());
-        valuesArray[0] = "Hello World";
-        valuesArray[1] = "2";
-        valuesArray[2] = "45";
-        valuesArray[3] = "63";
-        valuesArray[4] = "2";
+        try {
+          valuesArray = gEncrypt.returnValues(getCipherText());
+        } catch (IOException e) {
+          e.printStackTrace();
+        }
         setPlainText(valuesArray[0]);
         setCogValue(valuesArray[1], cog1Field);
         setCogValue(valuesArray[2], cog2Field);
