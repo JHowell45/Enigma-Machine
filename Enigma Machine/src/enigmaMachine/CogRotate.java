@@ -35,5 +35,13 @@ public class CogRotate {
       }
     }
   }
+  
+  /**
+   * This method will be used for rotating an arbitrary number of cogs.
+   * @param cogArray the cogs being rotated.
+   */
+  public static void recursiveCogRotate(Cog[] cogArray) {
+    //This method will rotate an arbitrary number of cogs.
+  }
 
 }

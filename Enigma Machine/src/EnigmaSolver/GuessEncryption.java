@@ -18,26 +18,26 @@ public class GuessEncryption {
   /**
    * These are all of the variables used in this class.
    * 
-   * @param guessedCogValue1
-   * @param guessedCogValue2
-   * @param guessedCogValue3
+   * @param guessedCogValue1 is the guessed value of the first cog.
+   * @param guessedCogValue2 is the guessed value of the second cog.
+   * @param guessedCogValue3 is the guessed value of the third cog.
    * @param loop
    * @param plainText
    * @param plainTextArray
    * @param cipherTextArray
    * @param allWords
-   * @param sCog
-   * @param mCog
+   * @param sCog is the small cog used in the enigma machine.
+   * @param mCog is the middle cog used in the enigma Machine.
    * @param lCog
    * @param allCorrect
    * @param countCorrect
    * @param values
+   * @param library
+   * @param libLength
    * @param lib
    * @param encrypt
    * @param oFile
    * @param cRot
-   * @param library
-   * @param libLength
    */
   public int guessedCogValue1 = 0;
   public int guessedCogValue2 = 0;
@@ -53,15 +53,15 @@ public class GuessEncryption {
   public int allCorrect;
   public int countCorrect;
   public String[] values;
+  private char[] library;
+  private int libLength;
   
   private Library lib = new Library();
   private Encryption encrypt = new Encryption();
   private OpenFile oFile = new OpenFile();
   private CogRotate cRot = new CogRotate();
   
-  private char[] library = lib.potentialValues();
-  private int libLength = lib.getLibraryLength();
-  private String[] dictionary = oFile.openAndReadFile("dictionary.txt");
+  
 
   /**
    * This method is used to retrieve the cog start values, number of rounds applied to the
@@ -71,6 +71,8 @@ public class GuessEncryption {
    */
   public String[] returnValues(String cipherT) throws IOException {
     cipherTextArray = cipherT.split(" ");
+    library = lib.potentialValues();
+    libLength = lib.getLibraryLength();
     while(loop) {
       sCog = new Cog(libLength,guessedCogValue1);
       mCog = new Cog(libLength, guessedCogValue2);

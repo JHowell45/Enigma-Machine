@@ -25,7 +25,7 @@ public class OpenFile {
    */
   public String[] openAndReadFile(String filename) {
     int counter = 0;
-    String filePath = "resources/" + filename;
+    String filePath = "../resources/" + filename;
     dictionaryArrays = null;
     try {
       BufferedReader bReader = new BufferedReader(new FileReader(filePath));
