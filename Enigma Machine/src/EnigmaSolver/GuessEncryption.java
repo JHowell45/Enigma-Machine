@@ -61,6 +61,7 @@ public class GuessEncryption {
   
   private char[] library = lib.potentialValues();
   private int libLength = lib.getLibraryLength();
+  private String[] dictionary = oFile.openAndReadFile("dictionary.txt");
 
   /**
    * This method is used to retrieve the cog start values, number of rounds applied to the
@@ -68,7 +69,7 @@ public class GuessEncryption {
    * 
    * @return cog start values, number of rounds, and plaintext.
    */
-  public String[] returnValues(String cipherT) {
+  public String[] returnValues(String cipherT) throws IOException {
     cipherTextArray = cipherT.split(" ");
     while(loop) {
       sCog = new Cog(libLength,guessedCogValue1);
@@ -77,11 +78,7 @@ public class GuessEncryption {
       plainTextArray = encrypt.decryptionPlainTextArray(cipherTextArray, library, sCog, mCog, lCog);
       allCorrect = plainTextArray.length;
       countCorrect = 0;
-      try {
-        allWords = oFile.openAndReadFile("dictionary.txt");
-      } catch (IOException e) {
-        e.printStackTrace();
-      }
+      allWords = oFile.openAndReadFile("dictionary.txt");
       for(int i = 0; i < plainTextArray.length; i++) {
         for(int j = 0; j < allWords.length; j++) {
           if(plainTextArray[i].equals(allWords[j])) {

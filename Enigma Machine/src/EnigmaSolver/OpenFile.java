@@ -23,7 +23,7 @@ public class OpenFile {
    * @return
    * @throws IOException
    */
-  public String[] openAndReadFile(String filename) throws IOException {
+  public String[] openAndReadFile(String filename) {
     int counter = 0;
     String filePath = "resources/" + filename;
     dictionaryArrays = null;
