@@ -73,7 +73,7 @@ public class EnigmaSolverView extends JFrame {
   private JLabel roundsLabel;
   private JLabel resultsLabel;
   private GuessEncryption gEncrypt = new GuessEncryption();
-  public String[] valuesArray;
+  public String[] valuesArray = new String[5];
 
   /**
    * Launch the application.
@@ -130,11 +130,12 @@ public class EnigmaSolverView extends JFrame {
         valuesArray[1] = "2";
         valuesArray[2] = "45";
         valuesArray[3] = "63";
-        // setPlainText(valuesArray[0]);
-        setPlainText("Hello world");
-        // setCogValue(valuesArray[1], cog1Field);
-        // setCogValue(valuesArray[2], cog2Field);
-        // setCogValue(valuesArray[3], cog3Field);
+        valuesArray[4] = "2";
+        setPlainText(valuesArray[0]);
+        setCogValue(valuesArray[1], cog1Field);
+        setCogValue(valuesArray[2], cog2Field);
+        setCogValue(valuesArray[3], cog3Field);
+        setRoundValue(valuesArray[4]);
       }
     });
     decipherBtn.setToolTipText(
@@ -275,4 +276,12 @@ public class EnigmaSolverView extends JFrame {
     return cogField.getText();
   }
 
+  /**
+   * 
+   * @param value
+   */
+  public void setRoundValue(String value) {
+    roundsField.setText(value);
+  }
+  
 }
