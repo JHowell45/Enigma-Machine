@@ -30,19 +30,19 @@ public class OpenFile {
    */
   public HashSet<String> openAndReadFile(String filename) {
     System.out.println("importing file...");
-    String filePath = "resources/" + filename;
+    String filePath = "../../resources/" + filename;
     System.out.println("Successfully imported a file!!");
     File file = new File(filePath);
     wordList = null;
     try {
       Scanner scanner = new Scanner(file);
       System.out.println("Somethings happening 1?");
-      if(scanner.hasNextLine()) {
-        System.out.println("scanner has the next line.");
-      }
       while (scanner.hasNextLine()) {
         System.out.println("Somethings happening 2?");
-        wordList.add(scanner.next());
+        //wordList.add(scanner.nextLine());
+        String word = scanner.nextLine();
+        
+        wordList.add(word);
         System.out.println("Somethings happening 3?");
         System.out.println("Currently on word: " + scanner.nextLine());
       }
