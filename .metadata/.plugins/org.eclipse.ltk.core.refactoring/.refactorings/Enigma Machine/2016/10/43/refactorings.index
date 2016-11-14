@@ -1,0 +1,17 @@
+1477299449580	Rename method 'loopCheck'
+1477317929680	Move compilation unit
+1477319151739	Delete element
+1477324144242	Rename local variable 'lblNewLabel'
+1477385479364	Rename type 'MainWindow'
+1477391690101	Rename field 'mvController'
+1477422365258	Rename type 'EncryptText'
+1477422374411	Rename field 'encryptText'
+1477422387052	Rename field 'e'
+1477423252036	Rename field 'decrypt'
+1477423262218	Rename type 'DecryptText'
+1477423960304	Delete element
+1477424006105	Rename local variable 'lblNewLabel_1'
+1477424015691	Rename local variable 'lblNewLabel'
+1477639763356	Delete element
+1477852884682	Delete element
+1477867914544	Rename type 'EnigmaMachine'
