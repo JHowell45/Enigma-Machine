@@ -75,6 +75,7 @@ public class GuessEncryption {
     library = lib.potentialValues();
     libLength = lib.getLibraryLength();
     allWords = oFile.openAndReadFile("dictionary.txt");
+    System.out.println("Starting loop...");
     while(loop) {
       sCog = new Cog(libLength,guessedCogValue1);
       mCog = new Cog(libLength, guessedCogValue2);

@@ -29,19 +29,17 @@ public class OpenFile {
    * @throws IOException
    */
   public String[] openAndReadFile(String filename) {
-    int counter = 0;
     String filePath = "resources/" + filename;
+    File file = new File(filePath);
     dictionaryArrays = null;
     try {
-      Scanner scanner = new Scanner(new File(filePath));
-      String scanLine = scanner.next();
+      Scanner scanner = new Scanner(file);
       dictionaryArrays = new String[dictionaryLength];
       while(scanner.hasNext()) {
-        wordList.add(scanLine);
-        counter++;
-        System.out.println("Currently on word: " + counter);
+        wordList.add(scanner.nextLine());
+        System.out.println("Currently on word: " + scanner.nextLine());
       }
-      //bReader.close();
+      scanner.close();
       System.out.println("Finally Done!!");
       return dictionaryArrays;
 
