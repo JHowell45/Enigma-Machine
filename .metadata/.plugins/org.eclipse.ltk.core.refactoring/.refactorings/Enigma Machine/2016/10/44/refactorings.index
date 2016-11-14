@@ -1,7 +1,0 @@
-1477923739767	Rename package 'enigma'
-1477923787291	Rename type 'MainView'
-1477936199459	Rename type 'MainViewEnigmaMachine'
-1477936213843	Rename type 'MainViewEnigmaSolver'
-1477936830496	Rename local variable 'lblNewJgoodiesLabel'
-1477940764932	Rename field 'plaintextValue'
-1477946505847	Convert local variable 'dictionaryArray' to field

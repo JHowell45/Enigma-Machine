@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename local variable &apos;line&apos; in &apos;EnigmaSolver.OpenFile.openAndReadFile(...)&apos; to &apos;buffLine&apos;&#x0A;- Original project: &apos;Enigma Machine&apos;&#x0A;- Original element: &apos;EnigmaSolver.OpenFile.openAndReadFile(String).line&apos;&#x0A;- Renamed element: &apos;line&apos;&#x0A;- Update references to refactored element" description="Rename local variable &apos;line&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;EnigmaSolver{OpenFile.java[OpenFile~openAndReadFile~QString;@line!767!799!774!777!QString;!0!false" name="buffLine" references="true" stamp="1479122595348" version="1.0"/>
-</session>
