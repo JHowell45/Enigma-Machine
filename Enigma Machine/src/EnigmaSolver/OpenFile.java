@@ -7,9 +7,11 @@
 package EnigmaSolver;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Scanner;
 
 public class OpenFile {
   
@@ -17,7 +19,7 @@ public class OpenFile {
    * 
    */
   private String[] dictionaryArrays;
-  private ArrayList<String> wordList = new ArrayList<String>();
+  private HashSet<String> wordList = new HashSet<String>();
   private int dictionaryLength = 0;
 
   /**
@@ -31,20 +33,15 @@ public class OpenFile {
     String filePath = "resources/" + filename;
     dictionaryArrays = null;
     try {
-      BufferedReader bReader = new BufferedReader(new FileReader(filePath));
-      String line = bReader.readLine();
-     /* while(line != null) {
-        dictionaryLength ++;
-        System.out.println("All of the words: " + dictionaryLength);
-      }*/
+      Scanner scanner = new Scanner(new File(filePath));
+      String scanLine = scanner.next();
       dictionaryArrays = new String[dictionaryLength];
-      while (line != null) {
-        //dictionaryArrays[counter] = line;
-        wordList.add(line);
+      while(scanner.hasNext()) {
+        wordList.add(scanLine);
         counter++;
         System.out.println("Currently on word: " + counter);
       }
-      bReader.close();
+      //bReader.close();
       System.out.println("Finally Done!!");
       return dictionaryArrays;
 
