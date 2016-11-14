@@ -22,23 +22,24 @@ public class GuessEncryption {
    * @param guessedCogValue1 is the guessed value of the first cog.
    * @param guessedCogValue2 is the guessed value of the second cog.
    * @param guessedCogValue3 is the guessed value of the third cog.
-   * @param loop
-   * @param plainText
-   * @param plainTextArray
-   * @param cipherTextArray
-   * @param allWords
+   * @param loop is used to continue running the program.
+   * @param plainText is the plaintext to be deciphered from the cipher text.
+   * @param plainTextArray is the plain text broken into an array of words.
+   * @param cipherTextArray is the cipher text broken into an array of encrypted words.
+   * @param allWords a HashSet of all the words imported from the file.
    * @param sCog is the small cog used in the enigma machine.
-   * @param mCog is the middle cog used in the enigma Machine.
-   * @param lCog
-   * @param allCorrect
-   * @param countCorrect
-   * @param values
-   * @param library
-   * @param libLength
-   * @param lib
-   * @param encrypt
-   * @param oFile
-   * @param cRot
+   * @param mCog is the middle cog used in the enigma machine.
+   * @param lCog is the larg cog used in the enigma machine.
+   * @param allCorrect is used to store the total number of words in the cipher/plain text.
+   * @param countCorrect is used to show the total number of cipher words that have been decrypted,
+   *        that are actual words.
+   * @param values stores all of the cog values and the plaintext.
+   * @param library stores all of the potential values each cog can have.
+   * @param libLength is the total number of potential values a cog can have.
+   * @param lib is an instance of the Library class and is used to access its functions.
+   * @param encrypt is an instance of the Encryption class and is used to access its functions.
+   * @param oFile is an instance of the OpenFile class and is used to access its functions.
+   * @param cRot is an instance of the CogRotate class and is used to access its functions.
    */
   public int guessedCogValue1 = 0;
   public int guessedCogValue2 = 0;
@@ -47,7 +48,7 @@ public class GuessEncryption {
   public String plainText;
   public String[] plainTextArray;
   public String[] cipherTextArray;
-  public HashSet<String> allWords;
+  public HashSet<String> allWords = new HashSet<String>();
   public Cog sCog;
   public Cog mCog;
   public Cog lCog;
@@ -57,13 +58,13 @@ public class GuessEncryption {
   private char[] library;
   private int libLength;
   private int stillRunning = 0;
-  
+
   private Library lib = new Library();
   private Encryption encrypt = new Encryption();
   private OpenFile oFile = new OpenFile();
   private CogRotate cRot = new CogRotate();
-  
-  
+
+
 
   /**
    * This method is used to retrieve the cog start values, number of rounds applied to the
@@ -77,23 +78,23 @@ public class GuessEncryption {
     libLength = lib.getLibraryLength();
     allWords = oFile.openAndReadFile("dictionary.txt");
     System.out.println("Starting loop...");
-    while(loop) {
-      sCog = new Cog(libLength,guessedCogValue1);
+    while (loop) {
+      sCog = new Cog(libLength, guessedCogValue1);
       mCog = new Cog(libLength, guessedCogValue2);
       lCog = new Cog(libLength, guessedCogValue3);
       plainTextArray = encrypt.decryptionPlainTextArray(cipherTextArray, library, sCog, mCog, lCog);
       allCorrect = plainTextArray.length;
       countCorrect = 0;
-      for(int i = 0; i < plainTextArray.length; i++) {
-        if(allWords.contains(plainTextArray[i])) {
-          stillRunning ++;
+      for (int i = 0; i < plainTextArray.length; i++) {
+        if (allWords.contains(plainTextArray[i])) {
+          stillRunning++;
           System.out.println("Still Running: " + stillRunning);
           countCorrect++;
         }
       }
-      if(countCorrect == allCorrect) {
-        for(String s : plainTextArray) {
-           plainText += s + " ";
+      if (countCorrect == allCorrect) {
+        for (String s : plainTextArray) {
+          plainText += s + " ";
         }
         loop = false;
       } else {
@@ -108,6 +109,6 @@ public class GuessEncryption {
     values[4] = "1";
     return values;
   }
-  
-  
+
+
 }

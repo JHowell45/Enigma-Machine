@@ -122,6 +122,7 @@ public class EnigmaSolverView extends JFrame {
     cipherTextField.setBounds(6, 276, 1045, 38);
     contentPane.add(cipherTextField);
     cipherTextField.setColumns(10);
+    setCipherText("Mfnos 1uytm");
 
     decipherBtn = new JButton("Decipher");
     decipherBtn.addActionListener(new ActionListener() {
