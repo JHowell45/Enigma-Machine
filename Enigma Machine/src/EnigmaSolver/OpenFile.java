@@ -14,26 +14,36 @@ import java.util.HashSet;
 import java.util.Scanner;
 
 public class OpenFile {
-  
+
   /**
+   * These are the variables used in this class.
    * 
+   * @param wordList will contain all of the words from the file.
    */
   private HashSet<String> wordList = new HashSet<String>();
 
   /**
+   * This method is used to open and read a file into the wordsList HashSet.
    * 
-   * @param filePath
-   * @return
-   * @throws IOException
+   * @param filePath is the name of the file to be used to get the words from.
+   * @return the HashSet containing all of the words.
    */
   public HashSet<String> openAndReadFile(String filename) {
+    System.out.println("importing file...");
     String filePath = "resources/" + filename;
+    System.out.println("Successfully imported a file!!");
     File file = new File(filePath);
     wordList = null;
     try {
       Scanner scanner = new Scanner(file);
-      while(scanner.hasNext()) {
-        wordList.add(scanner.nextLine());
+      System.out.println("Somethings happening 1?");
+      if(scanner.hasNextLine()) {
+        System.out.println("scanner has the next line.");
+      }
+      while (scanner.hasNextLine()) {
+        System.out.println("Somethings happening 2?");
+        wordList.add(scanner.next());
+        System.out.println("Somethings happening 3?");
         System.out.println("Currently on word: " + scanner.nextLine());
       }
       scanner.close();
