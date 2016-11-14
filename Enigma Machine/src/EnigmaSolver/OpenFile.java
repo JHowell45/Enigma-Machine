@@ -30,7 +30,7 @@ public class OpenFile {
    */
   public HashSet<String> openAndReadFile(String filename) {
     System.out.println("importing file...");
-    String filePath = "../../resources/" + filename;
+    String filePath = "resources/" + filename;
     System.out.println("Successfully imported a file!!");
     File file = new File(filePath);
     wordList = null;
@@ -39,10 +39,7 @@ public class OpenFile {
       System.out.println("Somethings happening 1?");
       while (scanner.hasNextLine()) {
         System.out.println("Somethings happening 2?");
-        //wordList.add(scanner.nextLine());
-        String word = scanner.nextLine();
-        
-        wordList.add(word);
+        wordList.add(scanner.nextLine());
         System.out.println("Somethings happening 3?");
         System.out.println("Currently on word: " + scanner.nextLine());
       }
