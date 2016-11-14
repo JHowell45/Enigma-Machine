@@ -7,6 +7,7 @@
 package EnigmaSolver;
 
 import java.io.IOException;
+import java.util.HashSet;
 
 import enigmaMachine.Cog;
 import enigmaMachine.CogRotate;
@@ -46,7 +47,7 @@ public class GuessEncryption {
   public String plainText;
   public String[] plainTextArray;
   public String[] cipherTextArray;
-  public String[] allWords;
+  public HashSet<String> allWords;
   public Cog sCog;
   public Cog mCog;
   public Cog lCog;
@@ -84,18 +85,15 @@ public class GuessEncryption {
       allCorrect = plainTextArray.length;
       countCorrect = 0;
       for(int i = 0; i < plainTextArray.length; i++) {
-        for(int j = 0; j < allWords.length; j++) {
+        if(allWords.contains(plainTextArray[i])) {
           stillRunning ++;
           System.out.println("Still Running: " + stillRunning);
-          if(plainTextArray[i].equals(allWords[j])) {
-            countCorrect++;
-          }
+          countCorrect++;
         }
       }
       if(countCorrect == allCorrect) {
         for(String s : plainTextArray) {
-           plainText += s;
-           plainText += " ";
+           plainText += s + " ";
         }
         loop = false;
       } else {

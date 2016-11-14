@@ -18,9 +18,7 @@ public class OpenFile {
   /**
    * 
    */
-  private String[] dictionaryArrays;
   private HashSet<String> wordList = new HashSet<String>();
-  private int dictionaryLength = 0;
 
   /**
    * 
@@ -28,20 +26,19 @@ public class OpenFile {
    * @return
    * @throws IOException
    */
-  public String[] openAndReadFile(String filename) {
+  public HashSet<String> openAndReadFile(String filename) {
     String filePath = "resources/" + filename;
     File file = new File(filePath);
-    dictionaryArrays = null;
+    wordList = null;
     try {
       Scanner scanner = new Scanner(file);
-      dictionaryArrays = new String[dictionaryLength];
       while(scanner.hasNext()) {
         wordList.add(scanner.nextLine());
         System.out.println("Currently on word: " + scanner.nextLine());
       }
       scanner.close();
       System.out.println("Finally Done!!");
-      return dictionaryArrays;
+      return wordList;
 
     } catch (Exception e) {
       e.printStackTrace();
