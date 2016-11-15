@@ -77,8 +77,8 @@ public class GuessEncryption {
     guessedCogValueSmall = 0;
     guessedCogValueMedium = 0;
     guessedCogValueLarge = 0;
-    allWordLength = getLengthOfWords(cipherTextArray);
     cipherTextArray = cipherT.split(" ");
+    allWordLength = getLengthOfWords(cipherTextArray);
     library = lib.potentialValues();
     libLength = lib.getLibraryLength();
     allWords = oFile.openAndReadFile("dictionary.txt");
@@ -89,13 +89,13 @@ public class GuessEncryption {
     while (loop) {
       plainTextArray = encrypt.decryptionPlainTextArray(cipherTextArray, library, sCog, mCog, lCog);
       allCorrect = plainTextArray.length;
-      System.out.println(allWordLength);
+      //System.out.println("The total length of all the words: " + allWordLength);
       countCorrect = 0;
-      System.out.println("The current large cog value is: " + lCog.getCurrentValue());
+      /*System.out.println("The current large cog value is: " + lCog.getCurrentValue());
       System.out.println("The current medium cog value is: " + mCog.getCurrentValue());
-      System.out.println("The current small cog value is: " + sCog.getCurrentValue());
+      System.out.println("The current small cog value is: " + sCog.getCurrentValue());*/
       for (int i = 0; i < plainTextArray.length; i++) {
-        System.out.println("Current word is: " + plainTextArray[i]);
+        //System.out.println("Current word is: " + plainTextArray[i]);
         if (allWords.contains(plainTextArray[i].toLowerCase())) {
           countCorrect++;
         }
