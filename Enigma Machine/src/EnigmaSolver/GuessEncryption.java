@@ -19,6 +19,10 @@ public class GuessEncryption {
   /**
    * These are all of the variables used in this class.
    * 
+   * @param lib is an instance of the Library class and is used to access its functions.
+   * @param encrypt is an instance of the Encryption class and is used to access its functions.
+   * @param oFile is an instance of the OpenFile class and is used to access its functions.
+   * @param cRot is an instance of the CogRotate class and is used to access its functions.
    * @param guessedCogValueSmall is the guessed value of the first cog.
    * @param guessedCogValueMedium is the guessed value of the second cog.
    * @param guessedCogValueLarge is the guessed value of the third cog.
@@ -38,33 +42,32 @@ public class GuessEncryption {
    * @param libLength is the total number of potential values a cog can have.
    * @param allWordLength is used to store the length of all the words to correct the outputted cog
    *        values.
-   * @param lib is an instance of the Library class and is used to access its functions.
-   * @param encrypt is an instance of the Encryption class and is used to access its functions.
-   * @param oFile is an instance of the OpenFile class and is used to access its functions.
-   * @param cRot is an instance of the CogRotate class and is used to access its functions.
+   * @param loopCount is used to count how many loops have been made.
+   * @param roundsCount is used to count the total number of rounds made.
    */
-  public int guessedCogValueSmall;
-  public int guessedCogValueMedium;
-  public int guessedCogValueLarge;
+  private Library lib = new Library();
+  private Encryption encrypt = new Encryption();
+  private OpenFile oFile = new OpenFile();
+  private CogRotate cRot = new CogRotate();
+  public int guessedCogValueSmall = 0;
+  public int guessedCogValueMedium = 0;
+  public int guessedCogValueLarge = 0;
   public boolean loop = true;
   public String plainText = "";
   public String[] plainTextArray;
   public String[] cipherTextArray;
   public HashSet<String> allWords = new HashSet<String>();
-  public Cog sCog;
-  public Cog mCog;
-  public Cog lCog;
   public int allCorrect;
   public int countCorrect;
   public String[] values = new String[5];
-  private char[] library;
-  private int libLength;
+  private char[] library = lib.potentialValues();
+  private int libLength = lib.getLibraryLength();
+  public Cog sCog = new Cog(libLength, guessedCogValueSmall);
+  public Cog mCog = new Cog(libLength, guessedCogValueMedium);
+  public Cog lCog = new Cog(libLength, guessedCogValueLarge);
   private int allWordLength = 0;
-
-  private Library lib = new Library();
-  private Encryption encrypt = new Encryption();
-  private OpenFile oFile = new OpenFile();
-  private CogRotate cRot = new CogRotate();
+  private int loopCount = 0;
+  private int roundsCount = 1;
 
   /**
    * This method is used to retrieve the cog start values, number of rounds applied to the
@@ -74,32 +77,25 @@ public class GuessEncryption {
    * @return cog start values, number of rounds, and plaintext.
    */
   public String[] returnValues(String cipherT) throws IOException {
-    guessedCogValueSmall = 0;
-    guessedCogValueMedium = 0;
-    guessedCogValueLarge = 0;
     cipherTextArray = cipherT.split(" ");
     allWordLength = getLengthOfWords(cipherTextArray);
-    library = lib.potentialValues();
-    libLength = lib.getLibraryLength();
     allWords = oFile.openAndReadFile("dictionary.txt");
-    sCog = new Cog(libLength, guessedCogValueSmall);
-    mCog = new Cog(libLength, guessedCogValueMedium);
-    lCog = new Cog(libLength, guessedCogValueLarge);
+    System.out.println("The total length of all the words: " + allWordLength);
     System.out.println("Starting loop...");
     while (loop) {
       plainTextArray = encrypt.decryptionPlainTextArray(cipherTextArray, library, sCog, mCog, lCog);
       allCorrect = plainTextArray.length;
-      //System.out.println("The total length of all the words: " + allWordLength);
       countCorrect = 0;
-      /*System.out.println("The current large cog value is: " + lCog.getCurrentValue());
+      System.out.println("The current large cog value is: " + lCog.getCurrentValue());
       System.out.println("The current medium cog value is: " + mCog.getCurrentValue());
-      System.out.println("The current small cog value is: " + sCog.getCurrentValue());*/
+      System.out.println("The current small cog value is: " + sCog.getCurrentValue() + "\n");
       for (int i = 0; i < plainTextArray.length; i++) {
-        //System.out.println("Current word is: " + plainTextArray[i]);
+        System.out.println("Current word is: " + plainTextArray[i]);
         if (allWords.contains(plainTextArray[i].toLowerCase())) {
           countCorrect++;
         }
       }
+      System.out.println();
       if (countCorrect == allCorrect) {
         for (String s : plainTextArray) {
           plainText += s + " ";
@@ -110,11 +106,13 @@ public class GuessEncryption {
         loop = true;
       }
     }
+    
+    
     values[0] = plainText;
     values[1] = Integer.toString(sCog.getCurrentValue() - allWordLength);
     values[2] = Integer.toString(mCog.getCurrentValue());
     values[3] = Integer.toString(lCog.getCurrentValue());
-    values[4] = "1";
+    values[4] = Integer.toString(roundsCount);
     return values;
   }
 
@@ -131,5 +129,5 @@ public class GuessEncryption {
     }
     return wordLengthCounter;
   }
-
+  
 }
