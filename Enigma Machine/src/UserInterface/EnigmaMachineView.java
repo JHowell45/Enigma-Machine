@@ -230,6 +230,21 @@ public class EnigmaMachineView extends JFrame {
     }
     noOfRounds.setBounds(979, 179, 112, 46);
     contentPane.add(noOfRounds);
+    
+    JLabel smallCogTitle = new JLabel("Small");
+    smallCogTitle.setHorizontalAlignment(SwingConstants.CENTER);
+    smallCogTitle.setBounds(186, 157, 72, 22);
+    contentPane.add(smallCogTitle);
+    
+    JLabel mediumCogTitle = new JLabel("Medium");
+    mediumCogTitle.setHorizontalAlignment(SwingConstants.CENTER);
+    mediumCogTitle.setBounds(270, 157, 72, 22);
+    contentPane.add(mediumCogTitle);
+    
+    JLabel largeCogValue = new JLabel("Large");
+    largeCogValue.setHorizontalAlignment(SwingConstants.CENTER);
+    largeCogValue.setBounds(354, 157, 72, 22);
+    contentPane.add(largeCogValue);
   }
 
   /**

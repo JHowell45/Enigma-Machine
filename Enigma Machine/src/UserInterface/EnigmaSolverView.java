@@ -68,9 +68,9 @@ public class EnigmaSolverView extends JFrame {
   private JLabel enterCiphertextLabel;
   private JLabel plainTextLabel;
   private JLabel cogValuesLabel;
-  private JLabel cog1ValueLabel;
-  private JLabel cog2ValueLabel;
-  private JLabel cog3ValueLabel;
+  private JLabel smallCogTitle;
+  private JLabel mediumCogTitle;
+  private JLabel largeCogValue;
   private JLabel roundsLabel;
   private JLabel resultsLabel;
   private GuessEncryption gEncrypt = new GuessEncryption();
@@ -184,20 +184,20 @@ public class EnigmaSolverView extends JFrame {
     cog3Field.setBounds(315, 517, 73, 38);
     contentPane.add(cog3Field);
 
-    cog1ValueLabel = new JLabel("Cog 1");
-    cog1ValueLabel.setHorizontalAlignment(SwingConstants.CENTER);
-    cog1ValueLabel.setBounds(145, 475, 73, 30);
-    contentPane.add(cog1ValueLabel);
+    smallCogTitle = new JLabel("Small");
+    smallCogTitle.setHorizontalAlignment(SwingConstants.CENTER);
+    smallCogTitle.setBounds(145, 475, 73, 30);
+    contentPane.add(smallCogTitle);
 
-    cog2ValueLabel = new JLabel("Cog 2");
-    cog2ValueLabel.setHorizontalAlignment(SwingConstants.CENTER);
-    cog2ValueLabel.setBounds(230, 475, 73, 30);
-    contentPane.add(cog2ValueLabel);
+    mediumCogTitle = new JLabel("Medium");
+    mediumCogTitle.setHorizontalAlignment(SwingConstants.CENTER);
+    mediumCogTitle.setBounds(230, 475, 73, 30);
+    contentPane.add(mediumCogTitle);
 
-    cog3ValueLabel = new JLabel("Cog 3");
-    cog3ValueLabel.setHorizontalAlignment(SwingConstants.CENTER);
-    cog3ValueLabel.setBounds(315, 475, 73, 30);
-    contentPane.add(cog3ValueLabel);
+    largeCogValue = new JLabel("Large");
+    largeCogValue.setHorizontalAlignment(SwingConstants.CENTER);
+    largeCogValue.setBounds(315, 475, 73, 30);
+    contentPane.add(largeCogValue);
 
     roundsLabel = new JLabel("Number of Rounds: ");
     roundsLabel.setHorizontalAlignment(SwingConstants.CENTER);

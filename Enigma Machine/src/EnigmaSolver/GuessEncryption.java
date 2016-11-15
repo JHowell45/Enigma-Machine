@@ -36,6 +36,8 @@ public class GuessEncryption {
    * @param values stores all of the cog values and the plaintext.
    * @param library stores all of the potential values each cog can have.
    * @param libLength is the total number of potential values a cog can have.
+   * @param allWordLength is used to store the length of all the words to correct the outputted cog
+   *        values.
    * @param lib is an instance of the Library class and is used to access its functions.
    * @param encrypt is an instance of the Encryption class and is used to access its functions.
    * @param oFile is an instance of the OpenFile class and is used to access its functions.
@@ -57,6 +59,7 @@ public class GuessEncryption {
   public String[] values = new String[5];
   private char[] library;
   private int libLength;
+  private int allWordLength = 0;
 
   private Library lib = new Library();
   private Encryption encrypt = new Encryption();
@@ -67,12 +70,14 @@ public class GuessEncryption {
    * This method is used to retrieve the cog start values, number of rounds applied to the
    * encryption and the plaintext from the ciphertext.
    * 
+   * @param cipherT is the cipher text to be decrypted.
    * @return cog start values, number of rounds, and plaintext.
    */
   public String[] returnValues(String cipherT) throws IOException {
     guessedCogValueSmall = 0;
     guessedCogValueMedium = 0;
     guessedCogValueLarge = 0;
+    allWordLength = getLengthOfWords(cipherTextArray);
     cipherTextArray = cipherT.split(" ");
     library = lib.potentialValues();
     libLength = lib.getLibraryLength();
@@ -80,16 +85,11 @@ public class GuessEncryption {
     sCog = new Cog(libLength, guessedCogValueSmall);
     mCog = new Cog(libLength, guessedCogValueMedium);
     lCog = new Cog(libLength, guessedCogValueLarge);
-    int allWordLength = 0;
-    for(String cipherWord : cipherTextArray) {
-      allWordLength += cipherWord.length();
-    }
     System.out.println("Starting loop...");
     while (loop) {
       plainTextArray = encrypt.decryptionPlainTextArray(cipherTextArray, library, sCog, mCog, lCog);
       allCorrect = plainTextArray.length;
       System.out.println(allWordLength);
-      sCog.setCurrentValue(sCog.getCurrentValue() - allWordLength);
       countCorrect = 0;
       System.out.println("The current large cog value is: " + lCog.getCurrentValue());
       System.out.println("The current medium cog value is: " + mCog.getCurrentValue());
@@ -111,11 +111,25 @@ public class GuessEncryption {
       }
     }
     values[0] = plainText;
-    values[1] = Integer.toString(sCog.getCurrentValue());
+    values[1] = Integer.toString(sCog.getCurrentValue() - allWordLength);
     values[2] = Integer.toString(mCog.getCurrentValue());
     values[3] = Integer.toString(lCog.getCurrentValue());
     values[4] = "1";
     return values;
+  }
+
+  /**
+   * This method returns the total number of characters in the cipher text.
+   * 
+   * @param cipherTexttArray is the cipher text to get the char length from.
+   * @return the length of the cipher text.
+   */
+  public int getLengthOfWords(String[] cipherTexttArray) {
+    int wordLengthCounter = 0;
+    for (String cipherWord : cipherTextArray) {
+      wordLengthCounter += cipherWord.length();
+    }
+    return wordLengthCounter;
   }
 
 }
