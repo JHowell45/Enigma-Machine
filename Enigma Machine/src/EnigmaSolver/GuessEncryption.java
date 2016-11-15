@@ -45,7 +45,7 @@ public class GuessEncryption {
   public int guessedCogValue2 = 0;
   public int guessedCogValue3 = 0;
   public boolean loop = true;
-  public String plainText;
+  public String plainText = "";
   public String[] plainTextArray;
   public String[] cipherTextArray;
   public HashSet<String> allWords = new HashSet<String>();
@@ -63,8 +63,6 @@ public class GuessEncryption {
   private Encryption encrypt = new Encryption();
   private OpenFile oFile = new OpenFile();
   private CogRotate cRot = new CogRotate();
-
-
 
   /**
    * This method is used to retrieve the cog start values, number of rounds applied to the
@@ -85,10 +83,11 @@ public class GuessEncryption {
       plainTextArray = encrypt.decryptionPlainTextArray(cipherTextArray, library, sCog, mCog, lCog);
       allCorrect = plainTextArray.length;
       countCorrect = 0;
+      System.out.println("before running through array...");
       for (int i = 0; i < plainTextArray.length; i++) {
-        if (allWords.contains(plainTextArray[i])) {
-          stillRunning++;
-          System.out.println("Still Running: " + stillRunning);
+        System.out.println("running through array...");
+        System.out.println(plainTextArray[i]);
+        if (allWords.contains(plainTextArray[i].toLowerCase())) {
           countCorrect++;
         }
       }
@@ -109,6 +108,5 @@ public class GuessEncryption {
     values[4] = "1";
     return values;
   }
-
 
 }

@@ -33,7 +33,7 @@ public class MainView extends JFrame {
   private JLabel enigmaMachineDescription;
   private JButton enigmaMachineBtn;
   private JButton enigmaSolverBtn;
-  private EnigmaMachineView emView= new EnigmaMachineView();
+  private EnigmaMachineView emView = new EnigmaMachineView();
   private EnigmaSolverView esView = new EnigmaSolverView();
 
   /**
