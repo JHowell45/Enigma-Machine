@@ -113,8 +113,10 @@ public class EnigmaSolverView extends JFrame {
     enigmaSolverTitle.setBounds(6, 6, 1238, 45);
     contentPane.add(enigmaSolverTitle);
 
+    /*enigmaSolverDescription = new JLabel(
+        "<html>This program is used for discovering a ciphertexts cog start positions and the number of rounds of encryption have been applied to the plaintext. It will also show you the plaintext!</html>");*/
     enigmaSolverDescription = new JLabel(
-        "<html>This program is used for discovering a ciphertexts cog start positions and the number of rounds of encryption have been applied to the plaintext. It will also show you the plaintext!</html>");
+        "<html>This program is used for discovering a ciphertexts cog start position. It will also show you the plaintext! However, it can't decipher ciphertexts using more than one round of encryption!!</html>");
     enigmaSolverDescription.setBounds(6, 63, 1238, 52);
     contentPane.add(enigmaSolverDescription);
 
