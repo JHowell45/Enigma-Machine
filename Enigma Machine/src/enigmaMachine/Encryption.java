@@ -66,6 +66,9 @@ public class Encryption {
           }
         }
         tempCipherCharArray[letter] = convert.convertToLetter(valuesArray, letterValue);
+        System.out.println("The current small cog value is: " + c1.getCurrentValue());
+        System.out.println("The current medium cog value is: " + c2.getCurrentValue());
+        System.out.println("The current large cog value is: " + c3.getCurrentValue());
         CogRotate.cogRotate(c1, c2, c3);
       }
       cipherT = new String(tempCipherCharArray);
