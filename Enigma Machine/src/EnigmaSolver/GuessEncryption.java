@@ -82,7 +82,12 @@ public class GuessEncryption {
     allWords = oFile.openAndReadFile("dictionary.txt");
     System.out.println("The total length of all the words: " + allWordLength);
     System.out.println("Starting loop...");
+    int loopCounter = 0;
     while (loop) {
+      if(loopCounter >= libLength) {
+        System.out.println("Done a full loop!!!!");
+        return null;
+      } 
       plainTextArray = encrypt.decryptionPlainTextArray(cipherTextArray, library, sCog, mCog, lCog);
       allCorrect = plainTextArray.length;
       countCorrect = 0;
@@ -105,6 +110,7 @@ public class GuessEncryption {
         cRot.cogRotate(sCog, mCog, lCog);
         loop = true;
       }
+      loopCounter++;
     }
     
     

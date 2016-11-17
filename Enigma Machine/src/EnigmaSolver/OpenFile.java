@@ -33,16 +33,21 @@ public class OpenFile {
   public HashSet<String> openAndReadFile(String filename) {
     System.out.println("importing file...");
     String filePath = "resources/" + filename;
-    System.out.println("Successfully imported a file!!");
     File file = new File(filePath);
     try {
       Scanner scanner = new Scanner(file);
+      /*BufferedReader in = new BufferedReader(
+          new InputStreamReader(
+              getClass().getClassLoader().getResourceAsStream(
+                  "/resources/dictionary.txt")));*/
+      System.out.println("Successfully imported a file!!");
       while (scanner.hasNext()) {
-        // System.out.println("word is: " + scanner.next());
+        //System.out.println("word is: " + scanner.next());
         wordList.add(scanner.nextLine());
-        // System.out.println("Currently on word: " + scanner.nextLine());
+        //System.out.println("Currently on word: " + scanner.nextLine());
       }
       scanner.close();
+      
       System.out.println("Finally Done!!");
       return wordList;
 
@@ -50,6 +55,5 @@ public class OpenFile {
       e.printStackTrace();
       return null;
     }
-
   }
 }
