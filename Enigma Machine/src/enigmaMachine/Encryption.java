@@ -69,7 +69,7 @@ public class Encryption {
         System.out.println("The current small cog value is: " + c1.getCurrentValue());
         System.out.println("The current medium cog value is: " + c2.getCurrentValue());
         System.out.println("The current large cog value is: " + c3.getCurrentValue());
-        CogRotate.cogRotate(c1, c2, c3);
+        CogRotate.cogRotateForward(c1, c2, c3);
       }
       cipherT = new String(tempCipherCharArray);
       cipherTextArray[counter] = cipherT;
@@ -108,7 +108,7 @@ public class Encryption {
         }
         tempPlainArray[encryptedLetter] =
             convert.convertToLetter(valuesArray, encryptedLetterValue);
-        CogRotate.cogRotate(c1, c2, c3);
+        CogRotate.cogRotateForward(c1, c2, c3);
       }
       plainT = new String(tempPlainArray);
       plainTextArray[counter] = plainT;

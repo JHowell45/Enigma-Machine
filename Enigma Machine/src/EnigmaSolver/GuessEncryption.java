@@ -88,6 +88,9 @@ public class GuessEncryption {
         System.out.println("Done a full loop!!!!");
         return null;
       } 
+      System.out.println("The before large cog value is: " + lCog.getCurrentValue());
+      System.out.println("The before medium cog value is: " + mCog.getCurrentValue());
+      System.out.println("The before small cog value is: " + sCog.getCurrentValue() + "\n");
       plainTextArray = encrypt.decryptionPlainTextArray(cipherTextArray, library, sCog, mCog, lCog);
       allCorrect = plainTextArray.length;
       countCorrect = 0;
@@ -107,7 +110,7 @@ public class GuessEncryption {
         }
         loop = false;
       } else {
-        cRot.cogRotate(sCog, mCog, lCog);
+        cRot.cogRotateForward(sCog, mCog, lCog);
         loop = true;
       }
       loopCounter++;
