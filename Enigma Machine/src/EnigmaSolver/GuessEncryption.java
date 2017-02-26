@@ -9,10 +9,10 @@ package EnigmaSolver;
 import java.io.IOException;
 import java.util.HashSet;
 
-import enigmaMachine.Cog;
-import enigmaMachine.CogRotate;
-import enigmaMachine.Encryption;
-import enigmaMachine.Library;
+import EnigmaMachine.Cog;
+import EnigmaMachine.CogRotate;
+import EnigmaMachine.Encryption;
+import EnigmaMachine.Library;
 
 public class GuessEncryption {
 

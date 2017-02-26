@@ -6,7 +6,7 @@
  */
 
 
-package enigmaMachine;
+package EnigmaMachine;
 
 public class Cog {
 

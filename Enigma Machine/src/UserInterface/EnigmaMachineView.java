@@ -15,9 +15,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import enigmaMachine.Cog;
-import enigmaMachine.Encryption;
-import enigmaMachine.Library;
+import EnigmaMachine.Cog;
+import EnigmaMachine.Encryption;
+import EnigmaMachine.Library;
 
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;

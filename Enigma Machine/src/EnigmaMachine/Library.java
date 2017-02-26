@@ -4,7 +4,7 @@
  * @author Jacob Howell
  */
 
-package enigmaMachine;
+package EnigmaMachine;
 
 public class Library {
 
