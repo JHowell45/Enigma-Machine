@@ -55,17 +55,17 @@ public class CogRotate {
       tempSmall = sCog.getCurrentValue() - 1;
       sCog.setCurrentValue(tempSmall);
     } else {
-      sCog.setCurrentValue(sCog.getNumberOfValues() - 1);
+      sCog.setCurrentValue(sCog.getNumberOfValues());
       if(mCog.getCurrentValue() > 0) {
         tempMedium = mCog.getCurrentValue() - 1;
         mCog.setCurrentValue(tempMedium);
       } else {
-        mCog.setCurrentValue(mCog.getNumberOfValues() - 1);
+        mCog.setCurrentValue(mCog.getNumberOfValues());
         if(lCog.getCurrentValue() > 0) {
           tempLarge = lCog.getCurrentValue() - 1;
           lCog.setCurrentValue(tempLarge);   
         } else {
-          lCog.setCurrentValue(lCog.getNumberOfValues() - 1);
+          lCog.setCurrentValue(lCog.getNumberOfValues());
         }
       }
     }

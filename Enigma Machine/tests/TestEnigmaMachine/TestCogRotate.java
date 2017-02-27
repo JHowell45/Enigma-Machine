@@ -69,10 +69,19 @@ public class TestCogRotate {
    */
   @Test
   public void testCogRotateForward() {
-    int prevVal = testCogSmall.getCurrentValue();
+    int prevValSmall = testCogSmall.getCurrentValue();
+    int prevValMedium = testCogMedium.getCurrentValue();
+    int prevValLarge = testCogLarge.getCurrentValue();
+    assertEquals(testCurrentVal, prevValSmall);
+    assertEquals(testCurrentVal, prevValMedium);
+    assertEquals(testCurrentVal, prevValLarge);
     testCRot.cogRotateForward(testCogSmall, testCogMedium, testCogLarge);
-    int newVal = testCogSmall.getCurrentValue();
-    assertEquals(prevVal + 1, newVal);
+    int newValSmall = testCogSmall.getCurrentValue();
+    int newValMedium = testCogMedium.getCurrentValue();
+    int newValLarge = testCogLarge.getCurrentValue();
+    assertEquals(prevValSmall + 1, newValSmall);
+    assertEquals(testCurrentVal, newValMedium);
+    assertEquals(testCurrentVal, newValLarge);
   }
 
   /**
@@ -81,7 +90,7 @@ public class TestCogRotate {
    * the start of the value array and that the medium Cog is incremented by one.
    */
   @Test
-  public void testRotateSmallCogAtMax() {
+  public void testRotateForwardSmallCogAtMax() {
     testCogSmall.setCurrentValue(testNumOfVals);
     int prevValSmall = testCogSmall.getCurrentValue();
     int prevValMedium = testCogMedium.getCurrentValue();
@@ -98,7 +107,7 @@ public class TestCogRotate {
    * This method is used for testing the cogRotateForward() method in the CogRotate class.
    */
   @Test
-  public void testRotateMediumCogAtMax() {
+  public void testRotateForwardMediumCogAtMax() {
     testCogSmall.setCurrentValue(testNumOfVals);
     testCogMedium.setCurrentValue(testNumOfVals);
     int prevValSmall = testCogSmall.getCurrentValue();
@@ -122,7 +131,7 @@ public class TestCogRotate {
    * correctly without any issues and go to the starting value correctly.
    */
   @Test
-  public void testRotateLargeCogAtMax() {
+  public void testRotateForwardLargeCogAtMax() {
     testCogSmall.setCurrentValue(testNumOfVals);
     testCogMedium.setCurrentValue(testNumOfVals);
     testCogLarge.setCurrentValue(testNumOfVals);
@@ -142,11 +151,89 @@ public class TestCogRotate {
   }
 
   /**
-   * This method is used for testing the cogRotateBack() method in the CogRotate class.
+   * This method is used for testing the cogRotateBack() method in the CogRotate class. It should
+   * successfully decrement the Small Cog value by one each time it is called.
    */
   @Test
   public void testCogRotateBack() {
-
+    testCogSmall.setCurrentValue(testNumOfVals);
+    testCogMedium.setCurrentValue(testNumOfVals);
+    testCogLarge.setCurrentValue(testNumOfVals);
+    int prevValSmall = testCogSmall.getCurrentValue();
+    int prevValMedium = testCogMedium.getCurrentValue();
+    int prevValLarge = testCogLarge.getCurrentValue();
+    assertEquals(testNumOfVals, prevValSmall);
+    assertEquals(testNumOfVals, prevValMedium);
+    assertEquals(testNumOfVals, prevValLarge);
+    testCRot.cogRotateBack(testCogSmall, testCogMedium, testCogLarge);
+    int newValSmall = testCogSmall.getCurrentValue();
+    int newValMedium = testCogMedium.getCurrentValue();
+    int newValLarge = testCogLarge.getCurrentValue();
+    assertEquals(prevValSmall-1, newValSmall);
+    assertEquals(testNumOfVals, newValMedium);
+    assertEquals(testNumOfVals, newValLarge);
   }
 
+  /**
+   * This method is used for testing the cogRotateBack() method in the CogRotate class.
+   */
+  @Test
+  public void testRotateBackSmallCogAtMin() {
+    testCogMedium.setCurrentValue(testNumOfVals);
+    int prevValSmall = testCogSmall.getCurrentValue();
+    int prevValMedium = testCogMedium.getCurrentValue();
+    int prevValLarge = testCogLarge.getCurrentValue();
+    assertEquals(testCurrentVal, prevValSmall);
+    assertEquals(testNumOfVals, prevValMedium);
+    assertEquals(testCurrentVal, prevValLarge);
+    testCRot.cogRotateBack(testCogSmall, testCogMedium, testCogLarge);
+    int newValSmall = testCogSmall.getCurrentValue();
+    int newValMedium = testCogMedium.getCurrentValue();
+    int newValLarge = testCogLarge.getCurrentValue();
+    assertEquals(testNumOfVals, newValSmall);
+    assertEquals(testNumOfVals-1, newValMedium);
+    assertEquals(testCurrentVal, newValLarge);
+  }
+  
+  /**
+   * This method is used for testing the cogRotateBack() method in the CogRotate class.
+   */
+  @Test
+  public void testRotateBackMediumCogAtMin() {
+    assertEquals(0,testCurrentVal);
+    testCogLarge.setCurrentValue(testNumOfVals);
+    int prevValSmall = testCogSmall.getCurrentValue();
+    int prevValMedium = testCogMedium.getCurrentValue();
+    int prevValLarge = testCogLarge.getCurrentValue();
+    assertEquals(testCurrentVal, prevValSmall);
+    assertEquals(testCurrentVal, prevValMedium);
+    assertEquals(testNumOfVals, prevValLarge);
+    testCRot.cogRotateBack(testCogSmall, testCogMedium, testCogLarge);
+    int newValSmall = testCogSmall.getCurrentValue();
+    int newValMedium = testCogMedium.getCurrentValue();
+    int newValLarge = testCogLarge.getCurrentValue();
+    assertEquals(testNumOfVals, newValSmall);
+    assertEquals(testNumOfVals, newValMedium);
+    assertEquals(testNumOfVals-1, newValLarge);
+  }
+  
+  /**
+   * This method is used for testing the cogRotateBack() method in the CogRotate class.
+   */
+  @Test
+  public void testRotateBackLargeCogAtMin() {
+    int prevValSmall = testCogSmall.getCurrentValue();
+    int prevValMedium = testCogMedium.getCurrentValue();
+    int prevValLarge = testCogLarge.getCurrentValue();
+    assertEquals(testCurrentVal, prevValSmall);
+    assertEquals(testCurrentVal, prevValMedium);
+    assertEquals(testCurrentVal, prevValLarge);
+    testCRot.cogRotateBack(testCogSmall, testCogMedium, testCogLarge);
+    int newValSmall = testCogSmall.getCurrentValue();
+    int newValMedium = testCogMedium.getCurrentValue();
+    int newValLarge = testCogLarge.getCurrentValue();
+    assertEquals(prevValSmall-1, newValSmall);
+    assertEquals(testNumOfVals, newValMedium);
+    assertEquals(testNumOfVals, newValLarge);
+  }
 }
