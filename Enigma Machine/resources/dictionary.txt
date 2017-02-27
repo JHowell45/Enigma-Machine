@@ -61710,6 +61710,7 @@ encrownment
 encrust
 encrustment
 encrypt
+encrypted
 encryption
 encuirassed
 encumber

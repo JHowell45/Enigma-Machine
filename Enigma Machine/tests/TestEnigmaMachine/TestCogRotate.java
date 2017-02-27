@@ -232,7 +232,7 @@ public class TestCogRotate {
     int newValSmall = testCogSmall.getCurrentValue();
     int newValMedium = testCogMedium.getCurrentValue();
     int newValLarge = testCogLarge.getCurrentValue();
-    assertEquals(prevValSmall-1, newValSmall);
+    assertEquals(testNumOfVals, newValSmall);
     assertEquals(testNumOfVals, newValMedium);
     assertEquals(testNumOfVals, newValLarge);
   }
