@@ -16,6 +16,8 @@ import EnigmaMachine.Cog;
 
 public class TestCog {
   /**
+   * These are the variables used in the Test class.
+   * 
    * @param Cog is used for testing the Cog class.
    * @param testNumOfVals is used for setting the total number of values for the Cog variable.
    * @param testCurrentVal is used for setting the current value of the Cog variable.
