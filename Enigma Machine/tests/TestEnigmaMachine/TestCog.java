@@ -39,7 +39,7 @@ public class TestCog {
   }
 
   /**
-   * This method is used for getting rid of the testing varaibles and checking they have been
+   * This method is used for getting rid of the testing variables and checking they have been
    * successfully removed.
    * 
    * @throws Exception

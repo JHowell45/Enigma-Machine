@@ -43,7 +43,7 @@ public class TestCogRotate {
   }
 
   /**
-   * This method is used for getting rid of the testing varaibles and checking they have been
+   * This method is used for getting rid of the testing variables and checking they have been
    * successfully removed.
    * 
    * @throws Exception
@@ -169,13 +169,14 @@ public class TestCogRotate {
     int newValSmall = testCogSmall.getCurrentValue();
     int newValMedium = testCogMedium.getCurrentValue();
     int newValLarge = testCogLarge.getCurrentValue();
-    assertEquals(prevValSmall-1, newValSmall);
+    assertEquals(prevValSmall - 1, newValSmall);
     assertEquals(testNumOfVals, newValMedium);
     assertEquals(testNumOfVals, newValLarge);
   }
 
   /**
-   * This method is used for testing the cogRotateBack() method in the CogRotate class.
+   * This method is used for testing the cogRotateBack() method in the CogRotate class. It does the
+   * same as the method above, but also checks that small Cog correctly wraps around.
    */
   @Test
   public void testRotateBackSmallCogAtMin() {
@@ -191,16 +192,17 @@ public class TestCogRotate {
     int newValMedium = testCogMedium.getCurrentValue();
     int newValLarge = testCogLarge.getCurrentValue();
     assertEquals(testNumOfVals, newValSmall);
-    assertEquals(testNumOfVals-1, newValMedium);
+    assertEquals(testNumOfVals - 1, newValMedium);
     assertEquals(testCurrentVal, newValLarge);
   }
-  
+
   /**
-   * This method is used for testing the cogRotateBack() method in the CogRotate class.
+   * This method is used for testing the cogRotateBack() method in the CogRotate class. It does the
+   * same as the method above, but also checks that medium Cog correctly wraps around.
    */
   @Test
   public void testRotateBackMediumCogAtMin() {
-    assertEquals(0,testCurrentVal);
+    assertEquals(0, testCurrentVal);
     testCogLarge.setCurrentValue(testNumOfVals);
     int prevValSmall = testCogSmall.getCurrentValue();
     int prevValMedium = testCogMedium.getCurrentValue();
@@ -214,11 +216,12 @@ public class TestCogRotate {
     int newValLarge = testCogLarge.getCurrentValue();
     assertEquals(testNumOfVals, newValSmall);
     assertEquals(testNumOfVals, newValMedium);
-    assertEquals(testNumOfVals-1, newValLarge);
+    assertEquals(testNumOfVals - 1, newValLarge);
   }
-  
+
   /**
-   * This method is used for testing the cogRotateBack() method in the CogRotate class.
+   * This method is used for testing the cogRotateBack() method in the CogRotate class. It does the
+   * same as the method above, but also checks that all the Cogs correctly wrap around.
    */
   @Test
   public void testRotateBackLargeCogAtMin() {
