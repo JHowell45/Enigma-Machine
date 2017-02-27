@@ -28,7 +28,16 @@ public class TestCogRotate {
   }
 
   @After
-  public void tearDown() throws Exception {}
+  public void tearDown() throws Exception {
+    testCogSmall = null;
+    testCogMedium = null;
+    testCogLarge = null;
+    testCRot = null;
+    assertNull(testCogSmall);
+    assertNull(testCogMedium);
+    assertNull(testCogLarge);
+    assertNull(testCRot);
+  }
 
   @Test
   public void testExistence() {
@@ -36,8 +45,50 @@ public class TestCogRotate {
   
   @Test
   public void testCogRotateForward() {
-    int previousMinVal = testCogSmall.getCurrentValue();
+    int prevVal = testCogSmall.getCurrentValue();
     testCRot.cogRotateForward(testCogSmall,testCogMedium,testCogLarge);
+    int newVal = testCogSmall.getCurrentValue();
+    assertEquals(prevVal+1,newVal);
+  }
+  
+  @Test
+  public void testRotateSmallCogAtMax() {
+    testCogSmall.setCurrentValue(testNumOfVals);
+    int prevValSmall = testCogSmall.getCurrentValue();
+    int prevValMedium = testCogMedium.getCurrentValue();
+    assertEquals(testNumOfVals, prevValSmall);
+    assertEquals(testCurrentVal, prevValMedium);
+    testCRot.cogRotateForward(testCogSmall,testCogMedium,testCogLarge);
+    int newValSmall = testCogSmall.getCurrentValue();
+    int newValMedium = testCogMedium.getCurrentValue();
+    assertEquals(testCurrentVal, newValSmall);
+    assertEquals(prevValMedium+1, newValMedium);
+  }
+  
+  @Test 
+  public void testRotateMediumCogAtMax() {
+    testCogSmall.setCurrentValue(testNumOfVals);
+    testCogMedium.setCurrentValue(testNumOfVals);
+    int prevValSmall = testCogSmall.getCurrentValue();
+    int prevValMedium = testCogMedium.getCurrentValue();
+    int prevValLarge = testCogLarge.getCurrentValue();
+    assertEquals(testNumOfVals, prevValSmall);
+    assertEquals(testNumOfVals, prevValMedium);
+    assertEquals(testCurrentVal, prevValLarge);
+    
+    testCRot.cogRotateForward(testCogSmall, testCogMedium, testCogLarge);
+    
+    int newValSmall = testCogSmall.getCurrentValue();
+    int newValMedium = testCogMedium.getCurrentValue();
+    int newValLarge = testCogLarge.getCurrentValue();
+    assertEquals(testCurrentVal, newValSmall);
+    assertEquals(testCurrentVal, newValMedium);
+    assertEquals(prevValLarge+1, newValLarge);
+  }
+  
+  @Test
+  public void testRotateLargeCogAtMax() {
+    
   }
   
   @Test 

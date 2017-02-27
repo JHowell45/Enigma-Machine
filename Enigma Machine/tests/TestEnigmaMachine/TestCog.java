@@ -24,7 +24,11 @@ public class TestCog {
   private int testNumOfVals;
   private int testCurrentVal;
 
-
+  /**
+   * This method is used for setting up the Cog variables for testing purposes.
+   * 
+   * @throws Exception
+   */
   @Before
   public void setUp() throws Exception {
     testNumOfVals = 10;
@@ -32,15 +36,25 @@ public class TestCog {
     testCog = new Cog(testNumOfVals, testCurrentVal);
   }
 
+  /**
+   * This method is used for getting rid of the testing varaibles and checking they have been
+   * successfully removed.
+   * 
+   * @throws Exception
+   */
   @After
   public void tearDown() throws Exception {
     testCog = null;
     assertNull(testCog);
   }
-  
+
   @Test
   public void testExistence() {}
 
+  /**
+   * This method is used for testing the getNumOfVals() method in the Cog class. It should correctly
+   * return the total number of values the Cog has.
+   */
   @Test
   public void testGetNumOfVals() {
     int testValue = testCog.getNumberOfValues();
@@ -49,6 +63,10 @@ public class TestCog {
     assertSame(testNumOfVals, testValue);
   }
 
+  /**
+   * This method is used for testing the getCurrentValue() method in the Cog class. It should return
+   * the current value the Cog is on.
+   */
   @Test
   public void testGetCurrentValue() {
     int testVal = testCog.getCurrentValue();
@@ -57,6 +75,10 @@ public class TestCog {
     assertSame(testCurrentVal, testVal);
   }
 
+  /**
+   * This method is used for testing the setNumberOfValues() method in the Cog class. It should set
+   * the Max number of values each Cog contains.
+   */
   @Test
   public void testSetNumberOfValues() {
     int valueToSet = 10;
@@ -67,6 +89,10 @@ public class TestCog {
     assertSame(valueToSet, testVal);
   }
 
+  /**
+   * This method is used for testing the setCurrentValue() method in the Cog class. It should set
+   * the current value the Cog is on.
+   */
   @Test
   public void testSetCurrentValue() {
     int valueToSet = 10;
@@ -76,5 +102,5 @@ public class TestCog {
     assertEquals(valueToSet, testVal);
     assertSame(valueToSet, testVal);
   }
- 
+
 }
