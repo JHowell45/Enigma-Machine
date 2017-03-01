@@ -15,7 +15,7 @@ public class Cog {
    * 
    * @param numberOfValues contains the number of potential values each cog can have, will differ
    *        depending on whether it will include capitals or numbers.
-   * @param currentValue is used ot hold the current values of the cog.
+   * @param currentValue is used to hold the current values of the cog.
    */
   private int numberOfValues;
   private int currentValue;

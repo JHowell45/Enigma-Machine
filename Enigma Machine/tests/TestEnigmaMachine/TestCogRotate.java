@@ -1,3 +1,9 @@
+/**
+ * This class is used to test the CogRotate class in the EnigmaMachine package.
+ * 
+ * @author Jacob Howell
+ */
+
 package TestEnigmaMachine;
 
 import static org.junit.Assert.*;

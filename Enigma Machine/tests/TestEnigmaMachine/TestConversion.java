@@ -1,3 +1,9 @@
+/**
+ * This class is used to test the Conversion class in the EnigmaMachine package.
+ * 
+ * @author Jacob Howell
+ */
+
 package TestEnigmaMachine;
 
 import static org.junit.Assert.*;
@@ -12,7 +18,10 @@ import EnigmaMachine.Library;
 public class TestConversion {
   /**
    * These are the variables to be used in the Test class.
-   * @param testConversion
+   * 
+   * @param testConversion variable for testing the Conversion class.
+   * @param testLib variable for testing the Library class.
+   * @param testLibValues variable for holding the Library values.
    */
   private Conversion testConvert;
   private Library testLib;
@@ -56,9 +65,9 @@ public class TestConversion {
   public void testConvertToValue() {
     int testVal = 0;
     testVal = testConvert.convertToValue(testLibValues, 'a');
-    assertEquals(0,testVal);
+    assertEquals(0, testVal);
   }
-  
+
   /**
    * This method is used for testing the convertToLetter() method in the Conversion class.
    */
