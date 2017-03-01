@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import EnigmaMachine.Conversion;
+import EnigmaMachine.Library;
 
 public class TestConversion {
   /**
@@ -14,6 +15,8 @@ public class TestConversion {
    * @param testConversion
    */
   private Conversion testConversion;
+  private Library testLib;
+  private char[] testLibValues;
 
   /**
    * This method is used for setting up the Conversion variables for testing purposes.
@@ -23,6 +26,8 @@ public class TestConversion {
   @Before
   public void setUp() throws Exception {
     testConversion = new Conversion();
+    testLib = new Library();
+    testLibValues = testLib.potentialValues();
   }
 
   /**
@@ -41,7 +46,7 @@ public class TestConversion {
   public void testExistence() {}
 
   @Test
-  public void testConverToValue() {
+  public void testConvertToValue() {
     
   }
   
