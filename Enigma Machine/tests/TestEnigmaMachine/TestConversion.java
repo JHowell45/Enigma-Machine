@@ -14,7 +14,7 @@ public class TestConversion {
    * These are the variables to be used in the Test class.
    * @param testConversion
    */
-  private Conversion testConversion;
+  private Conversion testConvert;
   private Library testLib;
   private char[] testLibValues;
 
@@ -25,7 +25,7 @@ public class TestConversion {
    */
   @Before
   public void setUp() throws Exception {
-    testConversion = new Conversion();
+    testConvert = new Conversion();
     testLib = new Library();
     testLibValues = testLib.potentialValues();
   }
@@ -38,20 +38,34 @@ public class TestConversion {
    */
   @After
   public void tearDown() throws Exception {
-    testConversion = null;
-    assertNull(testConversion);
+    testConvert = null;
+    testLib = null;
+    testLibValues = null;
+    assertNull(testConvert);
+    assertNull(testLib);
+    assertNull(testLibValues);
   }
 
   @Test
   public void testExistence() {}
 
+  /**
+   * This method is used for testing the convertToValue() method in the Conversion class.
+   */
   @Test
   public void testConvertToValue() {
-    
+    int testVal = 0;
+    testVal = testConvert.convertToValue(testLibValues, 'a');
+    assertEquals(0,testVal);
   }
   
+  /**
+   * This method is used for testing the convertToLetter() method in the Conversion class.
+   */
   @Test
   public void testConvertToLetter() {
-    
+    char testVal = ' ';
+    testVal = testConvert.convertToLetter(testLibValues, 0);
+    assertEquals('a', testVal);
   }
 }
