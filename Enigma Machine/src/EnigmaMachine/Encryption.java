@@ -47,7 +47,7 @@ public class Encryption {
    * @param c1 is the first, smallest, cog.
    * @param c2 is the second, middle, cog.
    * @param c3 is the third, largest, cog.
-   * @return
+   * @return encrypted text as a String array.
    */
   public String[] encryptPlainTextArray(String plainTArray[], char valuesArray[], Cog c1, Cog c2,
       Cog c3) {
