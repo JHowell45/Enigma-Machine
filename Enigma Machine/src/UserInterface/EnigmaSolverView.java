@@ -45,9 +45,11 @@ public class EnigmaSolverView extends JFrame {
    * @param enterCiphertextLabel shows where the cipher text should be entered.
    * @param plainTextLabel shows where the plain text will be shown.
    * @param cogValuesLabel shows where the cog values will be shown.
+   * 
    * @param cog1ValueLabel shows where the first cog value is.
    * @param cog2ValueLabel shows where the second cog value is.
    * @param cog3ValueLabel shows where the third cog value is.
+   * 
    * @param roundsLabel shows where the number of rounds of encryption that have been applied to the
    *        plain text will be shown.
    * @param resultsLabel label showing where the results of the decipher will be shown.
@@ -67,10 +69,12 @@ public class EnigmaSolverView extends JFrame {
   private JButton decipherBtn;
   private JLabel enterCiphertextLabel;
   private JLabel plainTextLabel;
+
   private JLabel cogValuesLabel;
   private JLabel smallCogTitle;
   private JLabel mediumCogTitle;
   private JLabel largeCogValue;
+
   private JLabel roundsLabel;
   private JLabel resultsLabel;
   private GuessEncryption gEncrypt = new GuessEncryption();
@@ -113,8 +117,11 @@ public class EnigmaSolverView extends JFrame {
     enigmaSolverTitle.setBounds(6, 6, 1238, 45);
     contentPane.add(enigmaSolverTitle);
 
-    /*enigmaSolverDescription = new JLabel(
-        "<html>This program is used for discovering a ciphertexts cog start positions and the number of rounds of encryption have been applied to the plaintext. It will also show you the plaintext!</html>");*/
+    /*
+     * enigmaSolverDescription = new JLabel(
+     * "<html>This program is used for discovering a ciphertexts cog start positions and the number of rounds of encryption have been applied to the plaintext. It will also show you the plaintext!</html>"
+     * );
+     */
     enigmaSolverDescription = new JLabel(
         "<html>This program is used for discovering a ciphertexts cog start position. It will also show you the plaintext! However, it can't decipher ciphertexts using more than one round of encryption!!</html>");
     enigmaSolverDescription.setBounds(6, 63, 1238, 52);
@@ -134,11 +141,20 @@ public class EnigmaSolverView extends JFrame {
         } catch (IOException e) {
           e.printStackTrace();
         }
-        setPlainText(valuesArray[0]);
-        setCogValue(valuesArray[1], cog1Field);
-        setCogValue(valuesArray[2], cog2Field);
-        setCogValue(valuesArray[3], cog3Field);
-        setRoundValue(valuesArray[4]);
+        if(valuesArray[1].equals("-1")) {
+          setPlainText(" ");
+          setCogValue("-", cog1Field);
+          setCogValue("-", cog2Field);
+          setCogValue("-", cog3Field);
+          setRoundValue("-");
+          // CALL A METHOD TO OPEN A WINDOW SAYING THE RESULT COULD NOT BE FOUND!!!!!
+        } else {
+          setPlainText(valuesArray[0]);
+          setCogValue(valuesArray[1], cog1Field);
+          setCogValue(valuesArray[2], cog2Field);
+          setCogValue(valuesArray[3], cog3Field);
+          setRoundValue(valuesArray[4]);
+        }
       }
     });
     decipherBtn.setToolTipText(
@@ -219,22 +235,29 @@ public class EnigmaSolverView extends JFrame {
   }
 
   /**
+   * This method creates a listener for performing the decryption the ciphertext when the button is
+   * pressed.
    * 
-   * @param arg0
+   * @param arg0 is a variable created for the ActionListener.
    */
   public void setDecipherListener(ActionListener arg0) {
     decipherBtn.addActionListener(arg0);
   }
 
   /**
-   * This method is for setting the value of plaintextField.
+   * This method is for setting the value of plaintextField, which it has calculated using the
+   * decryption method. It then displays the plaintext discovered for the user.
+   * 
+   * @param plainT is the plaintext discovered to be displayed to the user.
    */
   public void setPlainText(String plainT) {
     plaintextField.setText(plainT);
   }
 
   /**
-   * This method is for setting the value of cipherTextField.
+   * This method is for setting the value of cipherTextField which is given by the user.
+   * 
+   * @param cipherT is the ciphertext given by the user to be decrypted.
    */
   public void setCipherText(String cipherT) {
     cipherTextField.setText(cipherT);
@@ -253,7 +276,6 @@ public class EnigmaSolverView extends JFrame {
    * This method is used for retrieving the string within the cipherTextField.
    * 
    * @return the String from the cipherTextField.
-   * @return
    */
   public String getCipherText() {
     return cipherTextField.getText();
@@ -262,9 +284,8 @@ public class EnigmaSolverView extends JFrame {
   /**
    * This method is used to return the start values of the cogs.
    * 
-   * @param value the value to be returned.
+   * @param value is the String to be returned.
    * @param cogField the cog to return the value to.
-   * @return the cog value.
    */
   public void setCogValue(String value, JTextField cogField) {
     cogField.setText(value);
@@ -272,6 +293,7 @@ public class EnigmaSolverView extends JFrame {
 
   /**
    * This method is used to retrieve the cog start value from a specified cog.
+   * 
    * @param cogField the cog value to retrieve.
    * @return the cog start value.
    */
@@ -280,11 +302,13 @@ public class EnigmaSolverView extends JFrame {
   }
 
   /**
+   * This method is used for showing how many rounds of encryption were used to encrypt the
+   * ciphertext.
    * 
-   * @param value
+   * @param value is the String showing how many rounds was applied.
    */
   public void setRoundValue(String value) {
     roundsField.setText(value);
   }
-  
+
 }

@@ -86,7 +86,12 @@ public class GuessEncryption {
     while (loop) {
       if(loopCounter >= libLength) {
         System.out.println("Done a full loop!!!!");
-        return null;
+        values[0] = "";
+        values[1] = Integer.toString(-1);
+        values[2] = Integer.toString(-1);
+        values[3] = Integer.toString(-1);
+        values[4] = Integer.toString(-1);
+        return values;
       } 
       System.out.println("The before large cog value is: " + lCog.getCurrentValue());
       System.out.println("The before medium cog value is: " + mCog.getCurrentValue());

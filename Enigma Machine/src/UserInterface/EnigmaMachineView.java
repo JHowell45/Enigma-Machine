@@ -171,6 +171,7 @@ public class EnigmaMachineView extends JFrame {
     encryptionField.setColumns(10);
     encryptionButton.setBounds(1103, 308, 141, 39);
     contentPane.add(encryptionButton);
+    setPlainText("Hello World");
 
     decryptionField = new JTextField();
     decryptionField.setColumns(10);
@@ -306,6 +307,8 @@ public class EnigmaMachineView extends JFrame {
 
   /**
    * This is used for getting the  cog start value for the specified cog selected by the user.
+   * 
+   * @param cogVal is used for getting the cog value entered into the box.
    * 
    * @return the number the user selected.
    */
