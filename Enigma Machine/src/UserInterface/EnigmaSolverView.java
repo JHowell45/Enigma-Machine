@@ -16,6 +16,7 @@ import javax.swing.border.EmptyBorder;
 import EnigmaSolver.GuessEncryption;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -45,11 +46,9 @@ public class EnigmaSolverView extends JFrame {
    * @param enterCiphertextLabel shows where the cipher text should be entered.
    * @param plainTextLabel shows where the plain text will be shown.
    * @param cogValuesLabel shows where the cog values will be shown.
-   * 
-   * @param cog1ValueLabel shows where the first cog value is.
-   * @param cog2ValueLabel shows where the second cog value is.
-   * @param cog3ValueLabel shows where the third cog value is.
-   * 
+   * @param smallCogTitle shows where the first cog value is.
+   * @param mediumCogTitle shows where the second cog value is.
+   * @param largeCogTitle shows where the third cog value is.
    * @param roundsLabel shows where the number of rounds of encryption that have been applied to the
    *        plain text will be shown.
    * @param resultsLabel label showing where the results of the decipher will be shown.
@@ -69,12 +68,10 @@ public class EnigmaSolverView extends JFrame {
   private JButton decipherBtn;
   private JLabel enterCiphertextLabel;
   private JLabel plainTextLabel;
-
   private JLabel cogValuesLabel;
   private JLabel smallCogTitle;
   private JLabel mediumCogTitle;
-  private JLabel largeCogValue;
-
+  private JLabel largeCogTitle;
   private JLabel roundsLabel;
   private JLabel resultsLabel;
   private GuessEncryption gEncrypt = new GuessEncryption();
@@ -117,11 +114,6 @@ public class EnigmaSolverView extends JFrame {
     enigmaSolverTitle.setBounds(6, 6, 1238, 45);
     contentPane.add(enigmaSolverTitle);
 
-    /*
-     * enigmaSolverDescription = new JLabel(
-     * "<html>This program is used for discovering a ciphertexts cog start positions and the number of rounds of encryption have been applied to the plaintext. It will also show you the plaintext!</html>"
-     * );
-     */
     enigmaSolverDescription = new JLabel(
         "<html>This program is used for discovering a ciphertexts cog start position. It will also show you the plaintext! However, it can't decipher ciphertexts using more than one round of encryption!!</html>");
     enigmaSolverDescription.setBounds(6, 63, 1238, 52);
@@ -141,13 +133,13 @@ public class EnigmaSolverView extends JFrame {
         } catch (IOException e) {
           e.printStackTrace();
         }
-        if(valuesArray[1].equals("-1")) {
+        if (valuesArray[1].equals("-1")) {
           setPlainText(" ");
           setCogValue("-", cog1Field);
           setCogValue("-", cog2Field);
           setCogValue("-", cog3Field);
           setRoundValue("-");
-          // CALL A METHOD TO OPEN A WINDOW SAYING THE RESULT COULD NOT BE FOUND!!!!!
+          SolverErrorView.openWindow();
         } else {
           setPlainText(valuesArray[0]);
           setCogValue(valuesArray[1], cog1Field);
@@ -212,10 +204,10 @@ public class EnigmaSolverView extends JFrame {
     mediumCogTitle.setBounds(230, 475, 73, 30);
     contentPane.add(mediumCogTitle);
 
-    largeCogValue = new JLabel("Large");
-    largeCogValue.setHorizontalAlignment(SwingConstants.CENTER);
-    largeCogValue.setBounds(315, 475, 73, 30);
-    contentPane.add(largeCogValue);
+    largeCogTitle = new JLabel("Large");
+    largeCogTitle.setHorizontalAlignment(SwingConstants.CENTER);
+    largeCogTitle.setBounds(315, 475, 73, 30);
+    contentPane.add(largeCogTitle);
 
     roundsLabel = new JLabel("Number of Rounds: ");
     roundsLabel.setHorizontalAlignment(SwingConstants.CENTER);
