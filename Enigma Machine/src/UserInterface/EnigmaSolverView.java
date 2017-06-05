@@ -139,7 +139,7 @@ public class EnigmaSolverView extends JFrame {
           setCogValue("-", cog2Field);
           setCogValue("-", cog3Field);
           setRoundValue("-");
-          SolverErrorView.openWindow();
+          SolverErrorView.openWindow(Integer.parseInt(valuesArray[1]));
         } else {
           setPlainText(valuesArray[0]);
           setCogValue(valuesArray[1], cog1Field);
