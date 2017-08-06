@@ -34,7 +34,7 @@ public class GetInput {
    * This method is used for getting cipher text from the user.
    * 
    * @param scanCipherText is the scanner used to get the cipher text from the user.
-   * @return hte cipher text array to be used.
+   * @return the cipher text array to be used.
    */
   public String[] getCipherTextArray(Scanner scanCipherText) {
     String cipherTextArray[] = null;

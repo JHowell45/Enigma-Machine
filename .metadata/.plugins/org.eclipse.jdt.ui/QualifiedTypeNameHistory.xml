@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.io.InputStream"/>
+<fullyQualifiedTypeName name="java.io.InputStreamReader"/>
+<fullyQualifiedTypeName name="EnigmaMachine.CogRotate"/>
+<fullyQualifiedTypeName name="EnigmaMachine.Conversion"/>
+<fullyQualifiedTypeName name="EnigmaMachine.Encryption"/>
+<fullyQualifiedTypeName name="EnigmaMachine.Cog"/>
+<fullyQualifiedTypeName name="EnigmaMachine.Library"/>
+<fullyQualifiedTypeName name="UserInterface.EnigmaMachineView"/>
+<fullyQualifiedTypeName name="UserInterface.MainView"/>
+<fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+<fullyQualifiedTypeName name="java.awt.event.ActionEvent"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;prevVal&apos; in &apos;TestEnigmaMachine.TestCogRotate.testRotateCogAtMax()&apos; to &apos;prevValSmall&apos;&#x0A;- Original project: &apos;Enigma Machine&apos;&#x0A;- Original element: &apos;TestEnigmaMachine.TestCogRotate.testRotateCogAtMax().prevVal&apos;&#x0A;- Renamed element: &apos;prevVal&apos;&#x0A;- Update references to refactored element" description="Rename local variable &apos;prevVal&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/tests&lt;TestEnigmaMachine{TestCogRotate.java[TestCogRotate~testRotateCogAtMax@prevVal!1388!1432!1392!1398!I!0!false" name="prevValSmall" references="true" stamp="1488186993535" version="1.0"/>
+</session>
