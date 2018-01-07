@@ -6,6 +6,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import EnigmaSolver.GuessEncryption;
+
 public class TestGuessEncryption {
   private GuessEncryption testGuessEncryption;
   private String[] testCipherText;
@@ -21,9 +23,7 @@ public class TestGuessEncryption {
   public void tearDown() throws Exception {}
 
   @Test
-  public void test() {
-    fail("Not yet implemented");
-  }
+  public void testExistence() {}
   
   @Test
   public void testReturnValues() {
